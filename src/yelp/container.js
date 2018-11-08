@@ -1,6 +1,7 @@
 import React from 'react';
 import YelpInput from './input';
 import YelpIndex from './index';
+import {connect} from 'react-redux';
 
 class YelpContainer extends React.Component {
   render () {
@@ -14,4 +15,10 @@ class YelpContainer extends React.Component {
   }
 }
 
-export default YelpContainer;
+const mapStateToProps = (state) => {
+  return {
+    restaurants: state.yelp.restaurants
+  }
+}
+
+export default connect(mapStateToProps)(YelpContainer);

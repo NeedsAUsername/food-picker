@@ -1,10 +1,12 @@
 import React from 'react';
 
 class YelpComponent extends React.Component {
+  rest = () => this.props.restaurant;
+
   render () {
     return (
       <div>
-        Name: {this.props.name}
+        Name: {this.rest().name}
       </div>
     )
   }

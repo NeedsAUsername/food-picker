@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import YelpContainer from './yelp/container'
+import YelpContainer from './yelp/container';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+
+const testing = () => {
+  return (<div>testing</div>)
+}
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <h1>Food Picker</h1>
-        <YelpContainer />
-      </div>
+      <Router>
+        <div className="App">
+          <h1>Food Picker</h1>
+          <Route exact path='/' component={YelpContainer} />
+        </div>
+      </Router>
     );
   }
 }

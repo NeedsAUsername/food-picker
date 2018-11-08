@@ -6,7 +6,6 @@ function yelpReducer(state = {
 
   switch(action.type) {
     case 'LOADING_RESTAURANTS':
-      console.log('loading restaurants');
       return {...state, loading: true};
 
     case 'FETCH_RESTAURANTS':

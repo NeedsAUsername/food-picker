@@ -4,7 +4,7 @@ class YelpComponent extends React.Component {
   render () {
     return (
       <div>
-        Yelp Component
+        Name: {this.props.name}
       </div>
     )
   }

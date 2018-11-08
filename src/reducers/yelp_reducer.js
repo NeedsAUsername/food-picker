@@ -10,7 +10,6 @@ function yelpReducer(state = {
       return {...state, loading: true};
 
     case 'FETCH_RESTAURANTS':
-      debugger
       console.log('fetching restaurants');
       return {
         loading: false,

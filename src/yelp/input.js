@@ -12,6 +12,8 @@ class YelpInput extends React.Component {
   }
   handleSubmit = (event) => {
     event.preventDefault();
+    const params = `location=${this.state.location}&price=${this.state.price}`;
+    this.props.fetchRestaurants(params);
   }
   render () {
     return (

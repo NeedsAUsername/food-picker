@@ -14,7 +14,7 @@ class YelpContainer extends React.Component {
     return (
       <div>
         Yelp Container
-        <YelpInput />
+        <YelpInput fetchRestaurants={this.props.fetchRestaurants}/>
         <YelpIndex restaurants={this.props.restaurants}/>
       </div>
     )

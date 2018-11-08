@@ -14,18 +14,20 @@ class YelpInput extends React.Component {
     event.preventDefault();
     const params = `location=${this.state.location}&price=${this.state.price}`;
     this.props.fetchRestaurants(params);
-    this.setState({
-      location: '',
-      price: ''
-    })
   }
   render () {
     return (
       <form onSubmit={this.handleSubmit}>
         <label for="location">Location</label>
         <input type="text" id="location" name="location" onChange={this.handleChange} value={this.state.location} required/>
-        <label for="price">Price(1-4)</label>
-        <input type="number" id="price" name="price" onChange={this.handleChange} value={this.state.price} />
+        <label for="price">Price</label>
+        <select onChange={this.handleChange} id="price" value={this.state.price} name="price">
+          <option value="">Any price is ok!</option>
+          <option value="1">Cheap</option>
+          <option value="2">Standard</option>
+          <option value="3">Treat</option>
+          <option value="4">Splurge</option>
+        </select>
         <input type="submit" value="Search" />
       </form>
     )

@@ -11,7 +11,7 @@ class YelpComponent extends React.Component {
         <a href={rest.url} target="_blank">{rest.name}</a>
         <a href={rest.url} target="_blank"><img src={yelpLogo} /></a>
         <div>
-          {rest.location.display_address}
+          {rest.location.display_address.join(' ')}
         </div>
         <div>
           {rest.isClosed ? 'Closed Right Now :(' : 'Open Now!'}

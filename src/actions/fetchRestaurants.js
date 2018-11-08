@@ -1,15 +1,17 @@
 export function fetchRestaurants(params) {
   return (dispatch) => {
-    dispatch({type: 'Loading_Restaurants'});
-    const url = 'https://api.yelp.com/v3/businesses/search?' + params;
-    const options = {
-      method: 'GET',
+    dispatch({type: 'LOADING_RESTAURANTS'})
+    return fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?${params}`, {
       headers: {
-        Authorization: process.env.REACT_APP_YELP_API_KEY
+        Authorization: `Bearer ${process.env.REACT_APP_YELP_API_KEY}`
       }
-    };
-    return fetch(url, options)
+    })
     .then(response => response.json())
-    .then(data => console.log(data))
-  };
+    .then(data => {
+      dispatch({
+        type: 'FETCH_RESTAURANTS',
+        payload: data.businesses.slice(0, 10)
+      })
+    })
+  }
 }

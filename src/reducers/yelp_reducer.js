@@ -1,4 +1,5 @@
 function yelpReducer(state = {
+  loading: false,
   restaurants: [{
     id: 1,
     name: 'testName'
@@ -7,7 +8,17 @@ function yelpReducer(state = {
   console.log(action);
 
   switch(action.type) {
+    case 'LOADING_RESTAURANTS':
+      console.log('loading restaurants');
+      return {...state, loading: true};
 
+    case 'FETCH_RESTAURANTS':
+      debugger
+      console.log('fetching restaurants');
+      return {
+        loading: false,
+        restaurants: action.payload
+      }
     default:
       return state;
   }

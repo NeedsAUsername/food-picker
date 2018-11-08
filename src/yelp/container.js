@@ -6,8 +6,10 @@ import {fetchRestaurants} from '../actions/fetchRestaurants';
 
 class YelpContainer extends React.Component {
   componentDidMount() {
-    fetchRestaurants('location=11354')
+    console.log('mounting');
+    this.props.fetchRestaurants('location=11354');
   }
+
   render () {
     return (
       <div>
@@ -25,4 +27,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(YelpContainer);
+export default connect(mapStateToProps, {fetchRestaurants})(YelpContainer);

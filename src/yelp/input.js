@@ -5,11 +5,19 @@ class YelpInput extends React.Component {
     location: '11354',
     price: '2'
   }
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+  handleSubmit = (event) => {
+    event.preventDefault();
+  }
   render () {
     return (
-      <form>
-        <input type="text" value={this.state.location} />
-        <input type="number" value={this.state.price} />
+      <form onSubmit={this.handleSubmit}>
+        <input type="text" name="location" onChange={this.handleChange} value={this.state.location} />
+        <input type="number" name="price" onChange={this.handleChange} value={this.state.price} />
         <input type="submit" value="Search" />
       </form>
     )

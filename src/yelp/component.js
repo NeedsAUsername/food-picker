@@ -1,12 +1,12 @@
 import React from 'react';
 
 class YelpComponent extends React.Component {
-  rest = () => this.props.restaurant;
 
   render () {
+    const rest = this.props.restaurant;
     return (
       <div>
-        Name: {this.rest().name}
+        <a href={rest.url} target="_blank">{rest.name}</a>
       </div>
     )
   }

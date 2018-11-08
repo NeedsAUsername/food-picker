@@ -4,9 +4,9 @@ import YelpComponent from './component';
 class YelpIndex extends React.Component {
   renderRestaurants = () => (
     this.props.restaurants.map(restaurant =>
-    <YelpComponent id={restaurant.id} name={restaurant.name} />)
+    <YelpComponent key={restaurant.id} name={restaurant.name} />)
   )
-  
+
   render () {
     return (
       <div>

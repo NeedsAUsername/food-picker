@@ -7,8 +7,15 @@ class YelpComponent extends React.Component {
     const rest = this.props.restaurant;
     return (
       <div>
+        <img width="50" height="40" src={rest.image_url} />
         <a href={rest.url} target="_blank">{rest.name}</a>
         <a href={rest.url} target="_blank"><img src={yelpLogo} /></a>
+        <div>
+          {rest.location.display_address}
+        </div>
+        <div>
+          {rest.isClosed ? 'Closed Right Now :(' : 'Open Now!'}
+        </div>
       </div>
     )
   }

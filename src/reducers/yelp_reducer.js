@@ -1,9 +1,6 @@
 function yelpReducer(state = {
   loading: false,
-  restaurants: [{
-    id: 1,
-    name: 'testName'
-  }]
+  restaurants: []
 }, action) {
   console.log(action);
 

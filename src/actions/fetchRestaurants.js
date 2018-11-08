@@ -13,5 +13,6 @@ export function fetchRestaurants(params) {
         payload: data.businesses.slice(0, 10)
       })
     })
+    .catch(error => console.log(error))
   }
 }

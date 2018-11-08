@@ -3,7 +3,7 @@ import React from 'react';
 class YelpInput extends React.Component {
   state = {
     location: '11354',
-    price: '2'
+    price: ''
   }
   handleChange = (event) => {
     this.setState({
@@ -14,12 +14,18 @@ class YelpInput extends React.Component {
     event.preventDefault();
     const params = `location=${this.state.location}&price=${this.state.price}`;
     this.props.fetchRestaurants(params);
+    this.setState({
+      location: '',
+      price: ''
+    })
   }
   render () {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type="text" name="location" onChange={this.handleChange} value={this.state.location} />
-        <input type="number" name="price" onChange={this.handleChange} value={this.state.price} />
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" onChange={this.handleChange} value={this.state.location} required/>
+        <label for="price">Price(1-4)</label>
+        <input type="number" id="price" name="price" onChange={this.handleChange} value={this.state.price} />
         <input type="submit" value="Search" />
       </form>
     )

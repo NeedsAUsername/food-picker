@@ -14,7 +14,7 @@ class YelpContainer extends React.Component {
     return (
       <div>
         <YelpInput fetchRestaurants={this.props.fetchRestaurants}/>
-        <YelpIndex restaurants={this.props.restaurants}/>
+        <YelpIndex loading={this.props.loading} restaurants={this.props.restaurants}/>
       </div>
     )
   }
@@ -22,7 +22,8 @@ class YelpContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    restaurants: state.yelp.restaurants
+    restaurants: state.yelp.restaurants,
+    loading: state.yelp.loading
   }
 }
 

@@ -10,6 +10,7 @@ class YelpIndex extends React.Component {
   render () {
     return (
       <div>
+        {this.props.loading ? <div>Loading Restaurants...</div> : null}
         {this.renderRestaurants()}
       </div>
     )

@@ -9,7 +9,7 @@ class YelpContainer extends React.Component {
       <div>
         Yelp Container
         <YelpInput />
-        <YelpIndex />
+        <YelpIndex restaurants={this.props.restaurants}/>
       </div>
     )
   }

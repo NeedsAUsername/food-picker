@@ -1,6 +1,6 @@
 import React from 'react';
 
-class yelpComponent extends React.Component {
+class YelpComponent extends React.Component {
   render () {
     return (
       <div>

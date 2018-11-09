@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import YelpContainer from './yelp/container';
+import SearchContainer from './search/container';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import Randomizer from './yelp/randomizer'
+import RandomizerContainer from './randomizer/container'
 
 const testing = () => {
   return (<div>testing</div>)
@@ -15,8 +15,8 @@ class App extends Component {
       <Router>
         <div className="App">
           <h1>Food Picker</h1>
-          <Route exact path='/' component={YelpContainer} />
-          <Route exact path='/random' component={Randomizer} />
+          <Route exact path='/' component={SearchContainer} />
+          <Route exact path='/random' component={RandomizerContainer} />
         </div>
       </Router>
     );

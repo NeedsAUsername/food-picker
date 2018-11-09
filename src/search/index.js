@@ -1,10 +1,10 @@
 import React from 'react';
-import YelpComponent from './component';
+import SearchComponent from './component';
 
-class YelpIndex extends React.Component {
+class SearchIndex extends React.Component {
   renderRestaurants = () => (
     this.props.restaurants.map(restaurant =>
-    <YelpComponent key={restaurant.id} restaurant={restaurant} />)
+    <SearchComponent key={restaurant.id} restaurant={restaurant} />)
   )
 
   render () {
@@ -16,4 +16,4 @@ class YelpIndex extends React.Component {
   }
 }
 
-export default YelpIndex;
+export default SearchIndex;

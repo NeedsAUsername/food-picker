@@ -1,7 +1,7 @@
 import React from 'react';
 import yelpLogo from '../images/Yelp_trademark_RGB.png';
 
-class YelpComponent extends React.Component {
+class SearchComponent extends React.Component {
 
   render () {
     const rest = this.props.restaurant;
@@ -21,4 +21,4 @@ class YelpComponent extends React.Component {
   }
 }
 
-export default YelpComponent;
+export default SearchComponent;

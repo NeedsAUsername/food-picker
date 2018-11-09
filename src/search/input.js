@@ -1,6 +1,6 @@
 import React from 'react';
 
-class YelpInput extends React.Component {
+class SearchInput extends React.Component {
   state = {
     location: '11354',
     price: ''
@@ -34,4 +34,4 @@ class YelpInput extends React.Component {
   }
 }
 
-export default YelpInput;
+export default SearchInput;

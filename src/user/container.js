@@ -19,6 +19,7 @@ class UserContainer extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
+    loading: store.user.loading,
     restaurantIds: store.user.restaurantIds,
     restaurants: store.user.restaurants
   }

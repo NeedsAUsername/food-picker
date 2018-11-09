@@ -25,7 +25,10 @@ function usersReducer(state = {
 
     case 'FETCH_RESTAURANT_BY_ID':
       if (state.restaurants.find(rest => rest.id === action.payload.id)) {
-        return state;
+        return {
+          ...state,
+          loading: false
+        }
       } else {
         return {
           ...state,

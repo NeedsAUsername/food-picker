@@ -6,7 +6,6 @@ import {fetchRestaurants} from '../actions/fetchRestaurants';
 
 class YelpContainer extends React.Component {
   componentDidMount() {
-    console.log('mounting');
     this.props.fetchRestaurants('location=11354');
   }
 

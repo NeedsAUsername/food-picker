@@ -23,7 +23,7 @@ class App extends Component {
           <Navbar emptyRestaurants={this.props.emptyRestaurants}/>
           <Route exact path='/' component={SearchContainer} />
           <Route exact path='/random' component={RandomizerContainer} />
-          <Route exact path='/restaurants' component={UserContainer} />
+          <Route exact path='/saved' component={UserContainer} />
           <Footer />
         </div>
       </Router>

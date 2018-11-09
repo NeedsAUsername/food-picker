@@ -4,7 +4,7 @@ import './App.css';
 import SearchContainer from './search/container';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import RandomizerContainer from './randomizer/container';
-import Navbar from './static/navbar';
+import Navbar from './layout/navbar';
 
 const testing = () => {
   return (<div>testing</div>)

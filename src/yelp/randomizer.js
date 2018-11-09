@@ -1,8 +1,11 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {randomizeRestaurant} from '../actions/randomizeRestaurant';
 
 class Randomizer extends React.Component {
-  handleClick = () => {
-    console.log('randomize')
+  handleClick = (event) => {
+    event.preventDefault();
+    this.props.randomizeRestaurant();
   }
   render () {
     return (
@@ -13,4 +16,4 @@ class Randomizer extends React.Component {
   }
 }
 
-export default Randomizer;
+export default connect(null, {randomizeRestaurant})(Randomizer);

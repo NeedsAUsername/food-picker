@@ -9,6 +9,7 @@ function yelpReducer(state = {
       return {...state, loading: true};
 
     case 'FETCH_RESTAURANTS':
+      debugger
       return {
         loading: false,
         restaurants: action.payload

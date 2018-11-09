@@ -13,7 +13,7 @@ class UserContainer extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
-    restaurants: store.user.restuarants
+    restaurants: store.user.restaurants
   }
 }
 

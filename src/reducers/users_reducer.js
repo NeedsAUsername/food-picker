@@ -16,6 +16,11 @@ function usersReducer(state = {
         }
       }
 
+    case 'FETCH_RESTAURANT_BY_ID':
+      return {
+        ...state,
+        restaurants: [...state.restaurants, action.payload]
+      }
 
     default:
       return state;

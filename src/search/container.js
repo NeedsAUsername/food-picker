@@ -20,10 +20,10 @@ class SearchContainer extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (store) => {
   return {
-    restaurants: state.yelp.restaurants,
-    loading: state.yelp.loading
+    restaurants: store.yelp.restaurants,
+    loading: store.yelp.loading
   }
 }
 

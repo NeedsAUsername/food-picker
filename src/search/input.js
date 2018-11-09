@@ -18,9 +18,9 @@ class SearchInput extends React.Component {
   render () {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label for="location">Location</label>
+        <label htmlFor="location">Location</label>
         <input type="text" id="location" name="location" onChange={this.handleChange} value={this.state.location} required/>
-        <label for="price">Price</label>
+        <label htmlFor="price">Price</label>
         <select onChange={this.handleChange} id="price" value={this.state.price} name="price">
           <option value="">Any price is ok!</option>
           <option value="1">Cheap</option>

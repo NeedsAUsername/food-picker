@@ -16,7 +16,7 @@ class RandomizerInput extends React.Component {
   render () {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label for="location">Where Are You?</label>
+        <label htmlFor="location">Where Are You?</label>
         <input type="text" id="location" name="location" onChange={this.handleChange} value={this.state.location} required/>
         <input type="submit" value="Discover A Restaurant!" />
       </form>

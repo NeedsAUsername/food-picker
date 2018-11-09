@@ -7,7 +7,7 @@ class SearchComponent extends React.Component {
     const rest = this.props.restaurant;
     return (
       <div>
-        <img width="50" height="40" src={rest.image_url} />
+        <img width="50" height="40" src={rest.image_url} alt="restaurant" />
         <a href={rest.url} target="_blank">{rest.name}</a>
         <a href={rest.url} target="_blank"><img src={yelpLogo} /></a>
         <div>

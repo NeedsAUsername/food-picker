@@ -1,3 +1,5 @@
+// example params: 'zipcode=11354&price=2'
+
 export function fetchRestaurants(params) {
   return (dispatch) => {
     dispatch({type: 'LOADING_RESTAURANTS'})

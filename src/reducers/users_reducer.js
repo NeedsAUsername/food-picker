@@ -6,6 +6,10 @@ function usersReducer(state = {
 
   switch(action.type) {
 
+    case 'ADD_RESTAURANT':
+      return {
+        restaurants: [...restaurant, action.payload]
+      }
     default:
       return state;
   }

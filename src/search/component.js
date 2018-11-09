@@ -2,7 +2,6 @@ import React from 'react';
 import yelpLogo from '../images/Yelp_trademark_RGB.png';
 
 class SearchComponent extends React.Component {
-
   render () {
     const rest = this.props.restaurant;
     return (
@@ -15,6 +14,7 @@ class SearchComponent extends React.Component {
         </div>
         <div>
           {rest.isClosed ? 'Closed Right Now :(' : 'Open Now!'}
+          <button onClick={this.props.addRestaurant}>Add</button>
         </div>
       </div>
     )

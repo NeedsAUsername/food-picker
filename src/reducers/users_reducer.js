@@ -8,7 +8,8 @@ function usersReducer(state = {
 
     case 'ADD_RESTAURANT':
       return {
-        restaurants: [...restaurant, action.payload]
+        ...state, 
+        restaurants: [...state.restaurants, action.payload]
       }
     default:
       return state;

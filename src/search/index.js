@@ -4,7 +4,8 @@ import SearchComponent from './component';
 class SearchIndex extends React.Component {
   renderRestaurants = () => (
     this.props.restaurants.map(restaurant =>
-    <SearchComponent key={restaurant.id} restaurant={restaurant} />)
+    <SearchComponent key={restaurant.id} restaurant={restaurant}
+      addRestaurant={() => this.props.addRestaurant(restaurant.id)}/>)
   )
 
   render () {

@@ -1,7 +1,7 @@
 export function fetchRestaurantById(id) {
   return (dispatch) => {
     dispatch({
-      type: 'LOADING_RESTAURANTS'
+      type: 'LOADING_YOUR_RESTAURANTS'
     })
     return fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${id}`, {
       headers: {

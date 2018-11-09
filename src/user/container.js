@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {fetchRestaurantById} from '../actions/fetchRestaurantById';
+import SearchIndex from '../search/index';
 
 class UserContainer extends React.Component {
   componentDidMount() {
@@ -10,7 +11,7 @@ class UserContainer extends React.Component {
   render () {
     return (
       <div>
-        User Container
+        <SearchIndex restaurants={this.props.restaurants} loading={this.props.loading}/>
       </div>
     )
   }

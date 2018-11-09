@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {randomizeRestaurant} from '../actions/randomizeRestaurant';
 import SearchIndex from '../search/index';
+import RandomizerInput from './input';
 
 class RandomizerContainer extends React.Component {
   handleClick = (event) => {
@@ -11,7 +12,7 @@ class RandomizerContainer extends React.Component {
   render () {
     return (
       <div>
-        <button type="button" onClick={this.handleClick}>Tell Me Where To Go</button>
+        <RandomizerInput randomizeRestaurant={this.props.randomizeRestaurant}/>
         <SearchIndex loading={this.props.loading} restaurants={this.props.restaurants}/>
       </div>
     )

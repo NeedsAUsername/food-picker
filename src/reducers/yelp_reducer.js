@@ -13,6 +13,12 @@ function yelpReducer(state = {
         loading: false,
         restaurants: action.payload
       }
+
+    case 'EMPTY_RESTAURANTS':
+      return {
+        restaurants: []
+      }
+
     default:
       return state;
   }

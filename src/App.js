@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import SearchContainer from './search/container';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import RandomizerContainer from './randomizer/container'
+import RandomizerContainer from './randomizer/container';
+import Navbar from './static/navbar';
 
 const testing = () => {
   return (<div>testing</div>)
@@ -14,7 +15,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <h1>Food Picker</h1>
+          <Navbar />
           <Route exact path='/' component={SearchContainer} />
           <Route exact path='/random' component={RandomizerContainer} />
         </div>

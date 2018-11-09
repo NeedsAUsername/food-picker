@@ -10,17 +10,17 @@ import Navbar from './layout/navbar';
 import Footer from './layout/footer';
 import {emptyRestaurants} from './actions/emptyRestaurants';
 
-
-const testing = () => {
-  return (<div>testing</div>)
-}
+const routes = [{path: '/', name: 'Home'},
+  {path: '/random', name: 'Random'},
+  {path: '/saved', name: 'Saved'}
+];
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div className="App">
-          <Navbar emptyRestaurants={this.props.emptyRestaurants}/>
+          <Navbar emptyRestaurants={this.props.emptyRestaurants} routes={routes}/>
           <Route exact path='/' component={SearchContainer} />
           <Route exact path='/random' component={RandomizerContainer} />
           <Route exact path='/saved' component={UserContainer} />

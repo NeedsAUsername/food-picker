@@ -6,15 +6,16 @@ class Navbar extends React.Component {
     border: 'solid'
   })
   handleClick = () => {
-    console.log('emptying...')
     this.props.emptyRestaurants()
+  }
+  renderNavLinks = () => {
+    return this.props.routes.map(route => <NavLink to={route.path} exact activeStyle={this.current()} onClick={this.handleClick}>{route.name}</NavLink>);
   }
   render () {
     return (
       <nav>
         <h1>Food Picker</h1>
-        <NavLink to="/" exact activeStyle={this.current()} onClick={this.handleClick}>Search</NavLink>
-        <NavLink to="/random" exact activeStyle={this.current()} onClick={this.handleClick}>Randomize</NavLink>
+        {this.renderNavLinks()}
       </nav>
     )
   }

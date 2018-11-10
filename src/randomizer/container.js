@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import SearchIndex from '../search/index';
+import Restaurants from '../restaurants/index';
 import RandomizerInput from './input';
 import {randomizeRestaurant} from '../actions/randomizeRestaurant';
 import {addRestaurant} from '../actions/addRestaurant'
@@ -14,7 +14,7 @@ class RandomizerContainer extends React.Component {
     return (
       <div>
         <RandomizerInput randomizeRestaurant={this.props.randomizeRestaurant}/>
-        <SearchIndex loading={this.props.loading} restaurants={this.props.restaurants}
+        <Restaurants loading={this.props.loading} restaurants={this.props.restaurants}
           addRestaurant={this.props.addRestaurant} userRestaurants={this.props.userRestaurants}/>
       </div>
     )

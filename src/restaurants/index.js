@@ -1,10 +1,10 @@
 import React from 'react';
-import SearchComponent from './component';
+import Restaurant from './component';
 
-class SearchIndex extends React.Component {
+class Restaurants extends React.Component {
   renderRestaurants = () => (
     this.props.restaurants.map(restaurant =>
-    <SearchComponent key={restaurant.id} restaurant={restaurant}
+    <Restaurant key={restaurant.id} restaurant={restaurant}
       addRestaurant={() => this.props.addRestaurant(restaurant.id)}
       userRestaurants={this.props.userRestaurants}
     />)
@@ -19,4 +19,4 @@ class SearchIndex extends React.Component {
   }
 }
 
-export default SearchIndex;
+export default Restaurants;

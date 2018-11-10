@@ -12,7 +12,7 @@ class UserContainer extends React.Component {
     return (
       <div>
         <Restaurants restaurants={this.props.restaurants} loading={this.props.loading}
-          userRestaurants={this.props.restaurantIds}/>
+          userRestaurants={this.props.restaurantIds}/>  
       </div>
     )
   }

@@ -1,7 +1,5 @@
 export function emptyRestaurants() {
-  return (dispatch) => {
-    dispatch({
+  return {
       type: 'EMPTY_RESTAURANTS'
-    })
   }
 }

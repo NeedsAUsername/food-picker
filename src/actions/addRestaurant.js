@@ -1,8 +1,6 @@
 export function addRestaurant(restaurantId) {
-  return (dispatch) => {
-    dispatch({
+  return {
       type: 'ADD_RESTAURANT',
       payload: restaurantId
-    })
   }
 }

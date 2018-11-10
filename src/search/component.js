@@ -14,7 +14,8 @@ class SearchComponent extends React.Component {
         </div>
         <div>
           {rest.isClosed ? 'Closed Right Now :(' : 'Open Now!'}
-          <button onClick={this.props.addRestaurant}>Add</button>
+          {this.props.userRestaurants.includes(rest.id) ?
+            null : <button onClick={this.props.addRestaurant}>Save</button>}
         </div>
       </div>
     )

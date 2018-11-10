@@ -11,7 +11,8 @@ class UserContainer extends React.Component {
   render () {
     return (
       <div>
-        <SearchIndex restaurants={this.props.restaurants} loading={this.props.loading}/>
+        <SearchIndex restaurants={this.props.restaurants} loading={this.props.loading}
+          userRestaurants={this.props.restaurantIds}/>
       </div>
     )
   }

@@ -15,7 +15,7 @@ class RandomizerContainer extends React.Component {
       <div>
         <RandomizerInput randomizeRestaurant={this.props.randomizeRestaurant}/>
         <SearchIndex loading={this.props.loading} restaurants={this.props.restaurants}
-          addRestaurant={this.props.addRestaurant}/>
+          addRestaurant={this.props.addRestaurant} userRestaurants={this.props.userRestaurants}/>
       </div>
     )
   }
@@ -24,7 +24,8 @@ class RandomizerContainer extends React.Component {
 const mapStateToProps = (state) => {
   return {
     loading: state.yelp.loading,
-    restaurants: state.yelp.restaurants
+    restaurants: state.yelp.restaurants,
+    userRestaurants: state.user.restaurantIds
   }
 }
 export default connect(mapStateToProps, {randomizeRestaurant, addRestaurant})(RandomizerContainer);

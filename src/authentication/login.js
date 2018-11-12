@@ -9,10 +9,13 @@ class Login extends React.Component {
     this.setState({
       [event.target.name]: event.target.value
     }, () => console.log(this.state))
-  } 
+  }
+  handleSubmit = (event) => {
+    event.preventDefault();
+  }
   render () {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <label htmlFor="username">Username</label>
         <input type="text" name="username" id="username" value={this.state.username}
           onChange={this.handleChange}/>

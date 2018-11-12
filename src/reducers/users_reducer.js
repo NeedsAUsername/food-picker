@@ -1,7 +1,7 @@
 function usersReducer(state = {
   name: 'Kevin',
   restaurantIds: ['kBZggrnSP1kcUMnsnfkTaQ'], // This is saved to user db.
-  restaurants: [], // This is fetched on page load, not saved to db.
+  restaurants: [], // This is fetched on page load from yelp, not saved to db.
   loading: false
 }, action) {
   console.log(action);

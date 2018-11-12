@@ -4,12 +4,17 @@ import {login} from '../actions/login';
 
 class Login extends React.Component {
   state = {
-    username: '',
-    password: ''
+    auth: {
+      username: '',
+      password: ''
+    }
   }
   handleChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      auth:{
+        ...this.state.auth,
+        [event.target.name]: event.target.value
+      }
     }, () => console.log(this.state))
   }
   handleSubmit = (event) => {

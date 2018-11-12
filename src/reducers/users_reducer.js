@@ -37,6 +37,10 @@ function usersReducer(state = {
         }
       }
 
+    case 'LOADING_LOG_IN':
+      console.log('login hits reducer')
+      return state;
+
     default:
       return state;
   }

@@ -9,7 +9,7 @@ class Navbar extends React.Component {
     this.props.emptyRestaurants()
   }
   renderNavLinks = () => {
-    return this.props.routes.map(route => <NavLink to={route.path} exact activeStyle={this.current()} onClick={this.handleClick}>{route.name}</NavLink>);
+    return this.props.routes.map((route, index) => <NavLink key={index} to={route.path} exact activeStyle={this.current()} onClick={this.handleClick}>{route.name}</NavLink>);
   }
   render () {
     return (

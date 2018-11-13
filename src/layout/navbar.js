@@ -3,18 +3,19 @@ import {NavLink} from 'react-router-dom';
 
 class Navbar extends React.Component {
   current = () => ({
-    border: 'solid'
+    border: 'solid',
+    borderColor: 'yellow'
   })
   handleClick = () => {
     this.props.emptyRestaurants()
   }
   renderNavLinks = () => {
-    return this.props.routes.map((route, index) => <NavLink key={index} to={route.path} exact activeStyle={this.current()} onClick={this.handleClick}>{route.name}</NavLink>);
+    return this.props.routes.map((route, index) => <NavLink className="nav-links" key={index} to={route.path} exact activeStyle={this.current()} onClick={this.handleClick}>{route.name}</NavLink>);
   }
   render () {
     return (
-      <nav>
-        <h1>Food Picker</h1>
+      <nav className="nav-bar">
+        <h1>Restaurant Picker</h1>
         {this.renderNavLinks()}
       </nav>
     )

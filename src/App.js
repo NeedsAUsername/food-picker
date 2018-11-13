@@ -20,7 +20,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
+        <div className="app">
           <Navbar emptyRestaurants={this.props.emptyRestaurants} routes={routes}/>
           <Route exact path='/' component={SearchContainer} />
           <Route exact path='/random' component={RandomizerContainer} />

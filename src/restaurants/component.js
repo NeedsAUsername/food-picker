@@ -6,7 +6,7 @@ class Restaurant extends React.Component {
     const rest = this.props.restaurant;
     return (
       <div className="restaurant-container">
-        <img width="400" height="300" src={rest.image_url} alt="restaurant-pic-missing" />
+        <img width="400" height="320" src={rest.image_url} alt="restaurant-pic-missing" />
         <a href={rest.url} target="_blank" rel="noopener noreferrer"><img src={yelpLogo} alt="Yelp-Logo-Missing"/></a>
         <a href={rest.url} target="_blank" rel="noopener noreferrer">{rest.name}</a>
         <div>

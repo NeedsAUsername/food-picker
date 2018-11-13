@@ -12,7 +12,7 @@ class SearchContainer extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className="search-container">
         <SearchInput fetchRestaurants={this.props.fetchRestaurants}/>
         <Restaurants loading={this.props.loading} restaurants={this.props.restaurants} addRestaurant={this.props.addRestaurant} userRestaurants={this.props.userRestaurants}/>
       </div>

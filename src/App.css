@@ -28,7 +28,10 @@
   align-items: center;
   justify-content: center;
 }
-
-input {
-  
+.search-form {
+  display: flex;
+  flex-direction: column;
+}
+.search-form input, select{
+  min-width: 400px;
 }

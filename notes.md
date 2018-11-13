@@ -6,4 +6,4 @@ The Plan:
 4) Have a history page with the restaurants they've chosen. Allow like/dislike/link to yelp page.
 
 Idea!
-for the randomizer, have it be like tinder, where you swipe left/right, with pics from the restaurant!. 
+for the randomizer, have it be like tinder, where you swipe left/right, with pics from the restaurant!.

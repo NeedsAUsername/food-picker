@@ -4,17 +4,12 @@ import {login} from '../actions/login';
 
 class Login extends React.Component {
   state = {
-    auth: {
-      username: '',
-      password: ''
-    }
+    email: '',
+    password: ''
   }
   handleChange = (event) => {
     this.setState({
-      auth:{
-        ...this.state.auth,
-        [event.target.name]: event.target.value
-      }
+      [event.target.name]: event.target.value
     }, () => console.log(this.state))
   }
   handleSubmit = (event) => {
@@ -24,8 +19,8 @@ class Login extends React.Component {
   render () {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor="username">Username</label>
-        <input type="text" name="username" id="username" value={this.state.username}
+        <label htmlFor="email">Email</label>
+        <input type="text" name="email" id="username" value={this.state.username}
           onChange={this.handleChange}/>
         <label htmlFor="password">Password</label>
         <input type="password" name="password" id="password" value={this.state.password}

@@ -5,11 +5,15 @@ export function login(formState) {
     console.log(formState);
     const options = {
       method: 'POST',
-      contentType: 'application/json',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       accepts: 'application/json',
       body: JSON.stringify(formState)
     }
-    fetch(`${process.env.REACT_APP_RAILS_API}/user/token`, options)
-    .then(response => console.log(response))
+    return fetch(`${process.env.REACT_APP_RAILS_API}/sessions`, options)
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch(error => console.log(error))
   }
 }

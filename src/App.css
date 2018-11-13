@@ -27,6 +27,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 .search-form {
   display: flex;

@@ -2,7 +2,7 @@ function usersReducer(state = {
   name: 'Kevin',
   restaurantIds: ['kBZggrnSP1kcUMnsnfkTaQ'], // This is saved to user db.
   restaurants: [], // This is fetched on page load from yelp, not saved to db.
-  loading: false
+  logging_in: false
 }, action) {
   console.log(action);
 
@@ -38,8 +38,19 @@ function usersReducer(state = {
       }
 
     case 'LOADING_LOG_IN':
-      console.log('login hits reducer')
-      return state;
+      console.log('logging in')
+      return {
+        ...state,
+        logging_in: true
+      }
+
+    case 'LOG_IN':
+      console.log('logged in')
+      console.log(action.payload) 
+      return {
+        ...state,
+        logging_in: false
+      }
 
     default:
       return state;

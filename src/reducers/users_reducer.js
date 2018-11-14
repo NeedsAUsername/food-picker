@@ -75,6 +75,22 @@ function usersReducer(state = {
         }
       }
 
+    // sort of like before_action: user_authenticated? in rails
+    case 'checkUser':
+      console.log('checking');
+      console.log(action.payload);
+      if (action.payload) {
+        return {
+          ...state,
+          authenticated: true,
+        }
+      } else {
+        return {
+          ...state,
+          authenticated: false
+        };
+      }
+
     default:
       return state;
   }

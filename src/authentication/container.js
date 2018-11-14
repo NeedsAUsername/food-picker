@@ -5,6 +5,10 @@ import {checkUser} from '../actions/checkUser.js';
 
 class AuthenticationContainer extends React.Component {
 
+  // sort of like before_action: user_authenticated? in rails
+  componentDidMount() {
+    this.props.checkUser()
+  }
   render () {
     return (
       <div>

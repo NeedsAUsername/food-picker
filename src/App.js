@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import SearchContainer from './search/container';
 import RandomizerContainer from './randomizer/container';
 import UserContainer from './user/container';
-import Login from './authentication/login';
+import AuthenticationContainer from './authentication/container';
 import Navbar from './layout/navbar';
 import Footer from './layout/footer';
 import {emptyRestaurants} from './actions/emptyRestaurants';
@@ -13,7 +13,7 @@ import {emptyRestaurants} from './actions/emptyRestaurants';
 const routes = [{path: '/', name: 'Home'},
   {path: '/random', name: 'Random'},
   {path: '/saved', name: 'Saved'},
-  {path: '/login', name: 'Login'}
+  {path: '/account', name: 'Account'}
 ];
 
 class App extends Component {
@@ -25,7 +25,7 @@ class App extends Component {
           <Route exact path='/' component={SearchContainer} />
           <Route exact path='/random' component={RandomizerContainer} />
           <Route exact path='/saved' component={UserContainer} />
-          <Route exact path='/login' component={Login} />
+          <Route exact path='/account' component={AuthenticationContainer} />
           <Footer />
         </div>
       </Router>

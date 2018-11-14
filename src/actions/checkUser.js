@@ -1,4 +1,3 @@
-// Not going to go to reducer. Intended to be used in other components by itself.
 // async functions will always return a promise
 export async function checkUser() {
   const url = `${process.env.REACT_APP_RAILS_API}/users/current`;

@@ -5,18 +5,18 @@ import {checkUser} from '../actions/checkUser.js';
 
 class AuthenticationContainer extends React.Component {
 
-  handleCheck = (event) => {
-    checkUser().then(user => console.log(user))
-  }
-
   render () {
     return (
       <div>
-        <Login />
-        <button onClick={this.handleCheck}>Check</button>
+        {this.props.authenticated ? 'You are logged in' : <Login />}
       </div>
     )
   }
 }
 
-export default connect(null, {checkUser})(AuthenticationContainer);
+const mapStateToProps = (store) => {
+  return {
+    authenticated: store.user.authenticated
+  }
+}
+export default connect(mapStateToProps, {checkUser})(AuthenticationContainer);

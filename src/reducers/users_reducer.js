@@ -1,5 +1,5 @@
 function usersReducer(state = {
-  name: 'Kevin',
+  authenticated: false,
   restaurantIds: ['kBZggrnSP1kcUMnsnfkTaQ'], // This is saved to user db.
   restaurants: [], // This is fetched on page load from yelp, not saved to db.
   logging_in: false
@@ -50,6 +50,7 @@ function usersReducer(state = {
         alert('user credentials not authenticated');
         return {
           ...state,
+          authenticated: false,
           logging_in: false
         }
       } else {
@@ -58,11 +59,19 @@ function usersReducer(state = {
         if (localStorage.getItem('token') !== action.payload.authentication_token ||
             localStorage.getItem('email) !== action.payload.email')) {
           alert('Error in setting auth token');
-        }
-        console.log('logged in')
-        return {
-          ...state,
-          logging_in: false
+          return {
+            ...state,
+            authenticated: false,
+            logging_in: false
+          }
+        } else {
+          console.log('logged in')
+          return {
+            ...state,
+            restaurantIds: action.payload.restaurants,
+            authenticated: true,
+            logging_in: false,
+          }
         }
       }
 

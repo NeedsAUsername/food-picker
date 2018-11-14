@@ -57,7 +57,7 @@ function usersReducer(state = {
         localStorage.setItem('email', action.payload.email);
         if (localStorage.getItem('token') !== action.payload.authentication_token ||
             localStorage.getItem('email) !== action.payload.email')) {
-          alert('Error in setting auth token')
+          alert('Error in setting auth token');
         }
         console.log('logged in')
         return {

@@ -14,7 +14,7 @@ export function login(formState) {
     .then(json => {
       dispatch({
         type: 'LOG_IN',
-        action: json
+        payload: json
       })
     })
     .catch(error => console.log(error))

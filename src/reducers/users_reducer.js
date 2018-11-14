@@ -45,11 +45,19 @@ function usersReducer(state = {
       }
 
     case 'LOG_IN':
-      console.log('logged in')
-      console.log(action.payload) 
-      return {
-        ...state,
-        logging_in: false
+      console.log(action.payload)
+      if (action.payload.status === 'not_authenticated') {
+        alert('user credentials not authenticated');
+        return {
+          ...state,
+          logging_in: false
+        }
+      } else {
+        console.log('logged in')
+        return {
+          ...state,
+          logging_in: false
+        }
       }
 
     default:

@@ -3,9 +3,13 @@ import {connect} from 'react-redux';
 import Restaurants from '../restaurants/index';
 import RandomizerInput from './input';
 import {randomizeRestaurant} from '../actions/randomizeRestaurant';
-import {addRestaurant} from '../actions/addRestaurant'
+import {addRestaurant} from '../actions/addRestaurant';
+import {fetchUser} from '../actions/fetchUser';
 
 class RandomizerContainer extends React.Component {
+  componentDidMount() {
+    this.props.fetchUser();
+  }
   handleClick = (event) => {
     event.preventDefault();
     this.props.randomizeRestaurant();
@@ -28,4 +32,4 @@ const mapStateToProps = (state) => {
     userRestaurants: state.user.restaurantIds
   }
 }
-export default connect(mapStateToProps, {randomizeRestaurant, addRestaurant})(RandomizerContainer);
+export default connect(mapStateToProps, {randomizeRestaurant, addRestaurant, fetchUser})(RandomizerContainer);

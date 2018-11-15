@@ -4,10 +4,11 @@ import Restaurants from '../restaurants/index';
 import {connect} from 'react-redux';
 import {fetchRestaurants} from '../actions/fetchRestaurants';
 import {addRestaurant} from '../actions/addRestaurant';
+import {fetchUser} from '../actions/fetchUser';
 
 class SearchContainer extends React.Component {
   componentDidMount() {
-    this.props.fetchRestaurants('location=11354');
+    this.props.fetchUser();
   }
 
   render () {
@@ -28,4 +29,4 @@ const mapStateToProps = (store) => {
   }
 }
 
-export default connect(mapStateToProps, {fetchRestaurants, addRestaurant})(SearchContainer);
+export default connect(mapStateToProps, {fetchRestaurants, addRestaurant, fetchUser})(SearchContainer);

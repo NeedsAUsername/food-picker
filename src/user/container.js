@@ -1,14 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {fetchRestaurantById} from '../actions/fetchRestaurantById';
-import {checkUser} from '../actions/checkUser';
+import {fetchUser} from '../actions/fetchUser';
 import Restaurants from '../restaurants/index';
 
 class UserContainer extends React.Component {
   // https://stackoverflow.com/questions/47970276/is-using-async-componentdidmount-good
   async componentDidMount() {
     console.log('syncing');
-    await checkUser();
+    await fetchUser();
     this.props.restaurantIds.forEach(rest => this.props.fetchRestaurantById(rest))
   }
   render () {

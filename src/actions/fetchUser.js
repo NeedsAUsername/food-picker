@@ -1,5 +1,5 @@
 
-export function checkUser() {
+export function fetchUser() {
   return (dispatch) => {
     const url = `${process.env.REACT_APP_RAILS_API}/users/current`;
     const options = {
@@ -13,7 +13,7 @@ export function checkUser() {
     .then(json => {
       // json will contain user attributes if found, otherwise null
       dispatch({
-        type: 'checkUser',
+        type: 'fetchUser',
         payload: json
       })
     })

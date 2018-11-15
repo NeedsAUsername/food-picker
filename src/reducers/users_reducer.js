@@ -3,7 +3,8 @@ function usersReducer(state = {
   restaurantIds: [], // This is what is grabbed from db
   restaurants: [], // This is fetched on page load from yelp using restaurantIds
   logging_in: false,
-  loggin_out: false
+  loggin_out: false,
+  signing_up: false
 }, action) {
   console.log(action);
 
@@ -88,7 +89,28 @@ function usersReducer(state = {
         restaurantIds: [],
         restaurants: [],
         logging_in: false,
-        loggin_out: false
+        loggin_out: false,
+        signing_up: false
+      }
+
+    case 'LOADING_SIGN_UP':
+      console.log('logging in')
+      return {
+        ...state,
+        signing_up: true
+      }
+
+    case 'SIGN_UP':
+      if (action.payload.status === 'Error') {
+        alert('Error signing up. Make sure to input valid email and password');
+      } else if (action.payload.status === 'Email taken') {
+        alert('Email is taken');
+      } else {
+        alert('Signed Up successfully!');
+      }
+      return {
+        ...state,
+        signing_up: false
       }
 
     case 'FETCH_USER':
@@ -108,6 +130,7 @@ function usersReducer(state = {
           authenticated: false
         };
       }
+
 
     case 'EMPTY_RESTAURANTS':
       return {

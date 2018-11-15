@@ -1,6 +1,6 @@
 export function signup(formState) {
   return (dispatch) => {
-    dispatch({type: 'LOADING_SIGN_IN'});
+    dispatch({type: 'LOADING_SIGN_UP'});
     const options = {
       method: 'POST',
       headers: {
@@ -12,6 +12,7 @@ export function signup(formState) {
     return fetch(`${process.env.REACT_APP_RAILS_API}/users`, options)
     .then(response => response.json())
     .then(json => {
+      console.log(json);
       dispatch({
         type: 'SIGN_UP',
         payload: json

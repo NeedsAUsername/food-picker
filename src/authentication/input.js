@@ -12,6 +12,10 @@ class AuthenticationInput extends React.Component {
   }
   handleSubmit = (event) => {
     event.preventDefault();
+    this.setState({
+      email: '',
+      password: ''
+    })
     this.props.formAction(this.state);
   }
   render() {

@@ -1,7 +1,7 @@
 export function randomizeRestaurant(zip) {
   return (dispatch) => {
     dispatch({type: 'LOADING_RESTAURANTS'})
-    return fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${zip}`, {
+    return fetch(`${process.env.REACT_APP_PROXY}/https://api.yelp.com/v3/businesses/search?location=${zip}`, {
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_YELP_API_KEY}`
       }

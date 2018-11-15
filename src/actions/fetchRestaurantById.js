@@ -3,7 +3,7 @@ export function fetchRestaurantById(id) {
     dispatch({
       type: 'LOADING_YOUR_RESTAURANTS'
     })
-    return fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${id}`, {
+    return fetch(`${process.env.REACT_APP_PROXY}/https://api.yelp.com/v3/businesses/${id}`, {
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_YELP_API_KEY}`
       }

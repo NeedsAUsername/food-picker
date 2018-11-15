@@ -19,6 +19,7 @@ class Login extends React.Component {
   render () {
     return (
       <div>
+        <h1> Login </h1>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="email">Email</label>
           <input type="text" name="email" id="username" value={this.state.username}

@@ -2,7 +2,8 @@ function usersReducer(state = {
   authenticated: false,
   restaurantIds: [], // This is what is grabbed from db
   restaurants: [], // This is fetched on page load from yelp using restaurantIds
-  logging_in: false
+  logging_in: false,
+  loggin_out: false
 }, action) {
   console.log(action);
 
@@ -75,6 +76,21 @@ function usersReducer(state = {
         }
       }
 
+    case 'LOADING_LOG_OUT':
+      return {
+        ...state,
+        logging_out: true
+      }
+
+    case 'LOG_OUT':
+      return {
+        authenticated: false,
+        restaurantIds: [],
+        restaurants: [],
+        logging_in: false,
+        loggin_out: false
+      }
+
     case 'FETCH_USER':
       // Syncs the user from RAILS API with our redux store
       // If credentials are invalid, payload will be null
@@ -83,7 +99,7 @@ function usersReducer(state = {
         return {
           ...state,
           authenticated: true,
-          restaurantIds: restaurantIds 
+          restaurantIds: restaurantIds
         }
       } else {
         console.log('not logged in')

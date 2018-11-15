@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Login from './login';
 import {fetchUser} from '../actions/fetchUser.js';
+import {logout} from '../actions/logout.js';
 
 class AuthenticationContainer extends React.Component {
 
@@ -9,10 +10,14 @@ class AuthenticationContainer extends React.Component {
   componentDidMount() {
     this.props.fetchUser()
   }
+  renderContent = () => {
+    return this.props.authenticated ? <button onClick={this.props.logout}>Logout</button> : <Login />
+  }
+
   render () {
     return (
       <div>
-        {this.props.authenticated ? 'You are logged in' : <Login />}
+        {this.renderContent()}
       </div>
     )
   }
@@ -23,4 +28,4 @@ const mapStateToProps = (store) => {
     authenticated: store.user.authenticated
   }
 }
-export default connect(mapStateToProps, {fetchUser})(AuthenticationContainer);
+export default connect(mapStateToProps, {fetchUser, logout})(AuthenticationContainer);

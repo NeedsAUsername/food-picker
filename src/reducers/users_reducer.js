@@ -1,6 +1,6 @@
 function usersReducer(state = {
   authenticated: false,
-  restaurantIds: ['kBZggrnSP1kcUMnsnfkTaQ'], 
+  restaurantIds: [],
   restaurants: [], // This is fetched on page load from yelp using restaurantIds
   logging_in: false
 }, action) {
@@ -68,23 +68,23 @@ function usersReducer(state = {
           console.log('logged in')
           return {
             ...state,
-            restaurantIds: action.payload.restaurants,
             authenticated: true,
             logging_in: false,
           }
         }
       }
 
-    // sort of like before_action: user_authenticated? in rails
     case 'checkUser':
-      console.log('checking');
-      console.log(action.payload);
+      // If credentials are invalid, payload will be null
       if (action.payload) {
+        const restaurantIds = action.payload.restaurants.map(rest => rest.yelpNumber);
         return {
           ...state,
           authenticated: true,
+          restaurantIds: restaurantIds
         }
       } else {
+        console.log('not logged in')
         return {
           ...state,
           authenticated: false

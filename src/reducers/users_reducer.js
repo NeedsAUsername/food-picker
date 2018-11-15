@@ -1,6 +1,6 @@
 function usersReducer(state = {
   authenticated: false,
-  restaurantIds: [],
+  restaurantIds: [], // This is what is grabbed from db
   restaurants: [], // This is fetched on page load from yelp using restaurantIds
   logging_in: false
 }, action) {
@@ -17,6 +17,7 @@ function usersReducer(state = {
           restaurantIds: [...state.restaurantIds, action.payload]
         }
       }
+
     case 'LOADING_YOUR_RESTAURANTS':
       return {
         ...state,
@@ -90,6 +91,12 @@ function usersReducer(state = {
           ...state,
           authenticated: false
         };
+      }
+
+    case 'EMPTY_RESTAURANTS':
+      return {
+        ...state,
+        restaurants: []
       }
 
     default:

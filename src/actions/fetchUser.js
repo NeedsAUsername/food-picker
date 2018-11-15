@@ -1,4 +1,3 @@
-
 export function fetchUser() {
   return (dispatch) => {
     const url = `${process.env.REACT_APP_RAILS_API}/users/current`;

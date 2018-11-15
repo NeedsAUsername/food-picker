@@ -16,6 +16,7 @@ function yelpReducer(state = {
 
     case 'EMPTY_RESTAURANTS':
       return {
+        ...state, 
         restaurants: []
       }
 

@@ -14,7 +14,6 @@ export function fetchRestaurantById(id) {
         type: 'FETCH_RESTAURANT_BY_ID',
         payload: data
       })
-    }
-    )
+    })
   }
 }

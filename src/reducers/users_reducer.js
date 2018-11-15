@@ -75,7 +75,7 @@ function usersReducer(state = {
         }
       }
 
-    case 'fetchUser':
+    case 'FETCH_USER':
       // Syncs the user from RAILS API with our redux store
       // If credentials are invalid, payload will be null
       if (action.payload) {
@@ -83,7 +83,7 @@ function usersReducer(state = {
         return {
           ...state,
           authenticated: true,
-          restaurantIds: restaurantIds
+          restaurantIds: restaurantIds 
         }
       } else {
         console.log('not logged in')

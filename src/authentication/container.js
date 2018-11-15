@@ -12,8 +12,20 @@ class AuthenticationContainer extends React.Component {
     this.props.fetchUser()
   }
   renderContent = () => {
-    return this.props.authenticated ? <button onClick={this.props.logout}>Logout</button> :
-    <React.Fragment><Login /><SignUp /></React.Fragment>
+    if(this.props.authenticated){
+     return (
+        <React.Fragment>
+         <h1> Welcome {this.props.email} </h1>
+         <button onClick={this.props.logout}>Logout</button>
+        </React.Fragment>
+      )
+    } else {
+      return (
+        <React.Fragment>
+          <Login />
+          <SignUp />
+        </React.Fragment>)
+    }
   }
 
   render () {
@@ -27,6 +39,7 @@ class AuthenticationContainer extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
+    email: store.user.email,
     authenticated: store.user.authenticated
   }
 }

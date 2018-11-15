@@ -1,5 +1,6 @@
 function usersReducer(state = {
   authenticated: false,
+  email: '',
   restaurantIds: [], // This is what is grabbed from db
   restaurants: [], // This is fetched on page load from yelp using restaurantIds
   logging_in: false,
@@ -65,12 +66,13 @@ function usersReducer(state = {
           return {
             ...state,
             authenticated: false,
-            logging_in: false
+            logging_in: false,
           }
         } else {
           console.log('logged in')
           return {
             ...state,
+            email: action.payload.email,
             authenticated: true,
             logging_in: false,
           }
@@ -86,6 +88,7 @@ function usersReducer(state = {
     case 'LOG_OUT':
       return {
         authenticated: false,
+        email: '',
         restaurantIds: [],
         restaurants: [],
         logging_in: false,
@@ -121,6 +124,7 @@ function usersReducer(state = {
         return {
           ...state,
           authenticated: true,
+          email: action.payload.email,
           restaurantIds: restaurantIds
         }
       } else {

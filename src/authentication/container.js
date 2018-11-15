@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Login from './login';
+import SignUp from './signup';
 import {fetchUser} from '../actions/fetchUser.js';
 import {logout} from '../actions/logout.js';
 
@@ -11,7 +12,8 @@ class AuthenticationContainer extends React.Component {
     this.props.fetchUser()
   }
   renderContent = () => {
-    return this.props.authenticated ? <button onClick={this.props.logout}>Logout</button> : <Login />
+    return this.props.authenticated ? <button onClick={this.props.logout}>Logout</button> :
+    <React.Fragment><Login /><SignUp /></React.Fragment>
   }
 
   render () {

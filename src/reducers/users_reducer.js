@@ -75,6 +75,7 @@ function usersReducer(state = {
       }
 
     case 'checkUser':
+      // Syncs the user from RAILS API with our redux store
       // If credentials are invalid, payload will be null
       if (action.payload) {
         const restaurantIds = action.payload.restaurants.map(rest => rest.yelpNumber);

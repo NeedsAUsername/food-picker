@@ -1,7 +1,7 @@
 function usersReducer(state = {
   authenticated: false,
   email: '',
-  restaurantIds: [], // This is what is grabbed from db
+  restaurantIds: [], // This is what is grabbed from db / saved to state
   restaurants: [], // This is fetched on page load from yelp using restaurantIds
   logging_in: false,
   loggin_out: false,
@@ -19,6 +19,14 @@ function usersReducer(state = {
           ...state,
           restaurantIds: [...state.restaurantIds, action.payload]
         }
+      }
+
+    case 'DELETE_RESTAURANT':
+      const filteredRestaurants = state.restaurantIds.filter(id => id !== action.payload);
+      
+      return {
+        ...state,
+        restaurantIds: filteredRestaurants
       }
 
     case 'LOADING_YOUR_RESTAURANTS':

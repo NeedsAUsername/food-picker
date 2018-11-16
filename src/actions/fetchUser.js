@@ -1,6 +1,6 @@
 export function fetchUser() {
   return (dispatch) => {
-    const url = `${process.env.REACT_APP_RAILS_API}/users/current`;
+    const url = `https://restaurant-picker-api.herokuapp.com/v1/users/current`;
     const options = {
       headers: {
         'X-User-Email': localStorage.getItem('email'),

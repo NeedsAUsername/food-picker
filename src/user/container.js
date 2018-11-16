@@ -8,15 +8,17 @@ import Restaurants from '../restaurants/index';
 class UserContainer extends React.Component {
   // https://stackoverflow.com/questions/47970276/is-using-async-componentdidmount-good
   componentDidMount() {
-    this.props.loggedIn ? this.props.fetchUser() : this.getRestaurantsFromId();
+    this.props.fetchUser();
   }
-  getRestaurantsFromId = () => {
-    this.props.restaurantIds.forEach(rest => this.props.fetchRestaurantById(rest));
+  fetchRestaurants = () => {
+    if (this.props.restaurants == "" && this.props.restaurantIds != "") {
+      return this.props.restaurantIds.forEach(rest => this.props.fetchRestaurantById(rest))
+    } else if (this.props.restaurantIds == "") {return <p>No Restaurants Saved</p>}
   }
   render () {
     return (
       <div>
-        {this.props.loggedIn ? <button onClick={this.getRestaurantsFromId}>Load</button> : null}
+        {this.fetchRestaurants()}
         <Restaurants restaurants={this.props.restaurants} loading={this.props.loading}
           deleteRestaurant={this.props.deleteRestaurant}
           userRestaurants={this.props.restaurantIds}/>

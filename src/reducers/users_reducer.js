@@ -23,7 +23,6 @@ function usersReducer(state = {
 
     case 'DELETE_RESTAURANT':
       const filteredRestaurants = state.restaurantIds.filter(id => id !== action.payload);
-      
       return {
         ...state,
         restaurantIds: filteredRestaurants

@@ -4,7 +4,8 @@ class SearchInput extends React.Component {
   state = {
     location: '11354',
     price: '',
-    hot: ''
+    hot: '',
+    category: 'none'
   }
   handleChange = (event) => {
     this.setState({
@@ -13,7 +14,7 @@ class SearchInput extends React.Component {
   }
   handleSubmit = (event) => {
     event.preventDefault();
-    const params = `location=${this.state.location}&price=${this.state.price}&attributes=${this.state.hot}`;
+    const params = `location=${this.state.location}&price=${this.state.price}&attributes=${this.state.hot}&categories=${this.state.category}`;
     this.props.fetchRestaurants(params);
   }
   render () {
@@ -33,6 +34,18 @@ class SearchInput extends React.Component {
         <select onChange={this.handleChange} id="hot" name="hot" value={this.state.hot}>
           <option value="">No</option>
           <option value="hot_and_new">Sure</option>
+        </select>
+        <label htmlFor="cuisine">Categories</label>
+        <select onChange={this.handleChange} id="category" name="category" value={this.state.category}>
+          <option value="none">Any</option>
+          <option value="hotdogs">Fast Food</option>
+          <option value="tradamerican">American</option>
+          <option value="italian">Italian</option>
+          <option value="french">French</option>
+          <option value="chinese">Chinese</option>
+          <option value="mexican">Mexican</option>
+          <option value="spanish">Spanish</option>
+          <option value="vegetarian">Vegetarian</option>
         </select>
         <input type="submit" value="Search" />
       </form>

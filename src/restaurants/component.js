@@ -15,7 +15,8 @@ class Restaurant extends React.Component {
         <div>
           {rest.isClosed ? 'Closed Right Now :(' : 'Open Now!'}
           {this.props.userRestaurants.includes(rest.id) ?
-            null : <button onClick={this.props.addRestaurant}>Save</button>}
+            <button onClick={this.props.deleteRestaurant}>Remove From Saved</button> : 
+              <button onClick={this.props.addRestaurant}>Save</button>}
         </div>
       </div>
     )

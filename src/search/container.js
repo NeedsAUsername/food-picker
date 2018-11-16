@@ -4,6 +4,7 @@ import Restaurants from '../restaurants/index';
 import {connect} from 'react-redux';
 import {fetchRestaurants} from '../actions/fetchRestaurants';
 import {addRestaurant} from '../actions/addRestaurant';
+import {deleteRestaurant} from '../actions/deleteRestaurant';
 import {fetchUser} from '../actions/fetchUser';
 
 class SearchContainer extends React.Component {
@@ -15,7 +16,7 @@ class SearchContainer extends React.Component {
     return (
       <div className="search-container">
         <SearchInput fetchRestaurants={this.props.fetchRestaurants}/>
-        <Restaurants loading={this.props.loading} restaurants={this.props.restaurants} addRestaurant={this.props.addRestaurant} userRestaurants={this.props.userRestaurants}/>
+        <Restaurants loading={this.props.loading} restaurants={this.props.restaurants} addRestaurant={this.props.addRestaurant} deleteRestaurant={this.props.deleteRestaurant} userRestaurants={this.props.userRestaurants}/>
       </div>
     )
   }
@@ -29,4 +30,5 @@ const mapStateToProps = (store) => {
   }
 }
 
-export default connect(mapStateToProps, {fetchRestaurants, addRestaurant, fetchUser})(SearchContainer);
+export default connect(mapStateToProps,
+  {fetchRestaurants, addRestaurant, deleteRestaurant, fetchUser})(SearchContainer);

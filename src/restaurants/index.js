@@ -6,6 +6,7 @@ class Restaurants extends React.Component {
     this.props.restaurants.map(restaurant =>
     <Restaurant key={restaurant.id} restaurant={restaurant}
       addRestaurant={() => this.props.addRestaurant(restaurant.id)}
+      deleteRestaurant={() => this.props.deleteRestaurant(restaurant.id)}
       userRestaurants={this.props.userRestaurants}
     />)
   )

@@ -24,20 +24,15 @@ class SearchInput extends React.Component {
         <input type="text" id="location" name="location" onChange={this.handleChange} value={this.state.location} required/>
         <label htmlFor="price">Price</label>
         <select onChange={this.handleChange} id="price" value={this.state.price} name="price">
-          <option value="">Any price is ok!</option>
-          <option value="1">Cheap</option>
-          <option value="2">Standard</option>
-          <option value="3">Treat</option>
-          <option value="4">Splurge</option>
+          <option value="">Any</option>
+          <option value="1">$</option>
+          <option value="2">$$</option>
+          <option value="3">$$$</option>
+          <option value="4">$$$$</option>
         </select>
-        <label htmlFor="hot">Only want new restaurants?</label>
-        <select onChange={this.handleChange} id="hot" name="hot" value={this.state.hot}>
-          <option value="">No</option>
-          <option value="hot_and_new">Sure</option>
-        </select>
-        <label htmlFor="cuisine">Categories</label>
+        <label htmlFor="category">Categories</label>
         <select onChange={this.handleChange} id="category" name="category" value={this.state.category}>
-          <option value="none">Any</option>
+          <option value="none">All</option>
           <option value="hotdogs">Fast Food</option>
           <option value="tradamerican">American</option>
           <option value="italian">Italian</option>
@@ -46,6 +41,11 @@ class SearchInput extends React.Component {
           <option value="mexican">Mexican</option>
           <option value="spanish">Spanish</option>
           <option value="vegetarian">Vegetarian</option>
+        </select>
+        <label htmlFor="hot">Only want new restaurants?</label>
+        <select onChange={this.handleChange} id="hot" name="hot" value={this.state.hot}>
+          <option value="">No</option>
+          <option value="hot_and_new">Sure</option>
         </select>
         <input type="submit" value="Search" />
       </form>

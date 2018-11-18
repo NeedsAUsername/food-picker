@@ -17,6 +17,7 @@ class SearchContainer extends React.Component {
       <div className="search-container">
         <SearchInput fetchRestaurants={this.props.fetchRestaurants}/>
         <Restaurants loading={this.props.loading} restaurants={this.props.restaurants} addRestaurant={this.props.addRestaurant} deleteRestaurant={this.props.deleteRestaurant} userRestaurants={this.props.userRestaurants}/>
+        {this.props.noResults ? 'No Results' : null}
       </div>
     )
   }
@@ -26,6 +27,7 @@ const mapStateToProps = (store) => {
   return {
     userRestaurants: store.user.restaurantIds,
     restaurants: store.yelp.restaurants,
+    noResults: store.yelp.noResults,
     loading: store.yelp.loading
   }
 }

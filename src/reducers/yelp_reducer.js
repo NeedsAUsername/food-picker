@@ -1,6 +1,7 @@
 function yelpReducer(state = {
   loading: false,
-  restaurants: []
+  restaurants: [],
+  noResults: false
 }, action) {
   console.log(action);
 
@@ -9,15 +10,26 @@ function yelpReducer(state = {
       return {...state, loading: true};
 
     case 'FETCH_RESTAURANTS':
-      return {
-        loading: false,
-        restaurants: action.payload
+      if (action.payload == "") {
+        return {
+          restaurants: [],
+          noResults: true,
+          loading: false
+        }
+      } else {
+        return {
+          ...state,
+          loading: false,
+          noResults: false,
+          restaurants: action.payload
+        }
       }
 
     case 'EMPTY_RESTAURANTS':
       return {
-        ...state, 
-        restaurants: []
+        ...state,
+        restaurants: [],
+        noResults: false
       }
 
     default:

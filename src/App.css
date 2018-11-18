@@ -22,6 +22,7 @@
   margin: 1vw;
   text-decoration: none;
 }
+
 .restaurant-container {
   border-style: solid;
   display: flex;
@@ -37,7 +38,6 @@
   min-width: 340px;
   max-width: 90vw;
 }
-
 .search-form input, select{
   border: 1px solid green;
   font-size: 1.25em;
@@ -46,7 +46,6 @@
   color: green;
   margin: 5px;
 }
-
 .search-form input[type="submit"] {
   margin: 10px;
   font-size: 1.5em;

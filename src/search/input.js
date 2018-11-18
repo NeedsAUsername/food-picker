@@ -2,7 +2,7 @@ import React from 'react';
 
 class SearchInput extends React.Component {
   state = {
-    location: '11354',
+    location: '',
     price: '',
     hot: '',
     category: 'none'

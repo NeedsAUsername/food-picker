@@ -2,7 +2,7 @@ import React from 'react';
 
 class RandomizerInput extends React.Component {
   state = {
-    location: '11354',
+    location: '',
   }
   handleChange = (event) => {
     this.setState({

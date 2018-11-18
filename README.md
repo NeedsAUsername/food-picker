@@ -1,5 +1,21 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Site
+
+https://restaurant-picker-react.herokuapp.com/
+
+Home - Fetches restaurants from yelp API according to user input
+
+Random - Fetches a random restaurant around a location
+
+Saved - Shows saved restaurants
+
+Account - For logging in and signing up
+
+## Backend API
+
+https://github.com/NeedsAUsername/food-picker-api
+
 ## Available Scripts
 
 In the project directory, you can run:

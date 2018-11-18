@@ -33,11 +33,11 @@ class SearchInput extends React.Component {
         <label htmlFor="category">Categories</label>
         <select onChange={this.handleChange} id="category" name="category" value={this.state.category}>
           <option value="none">All</option>
-          <option value="hotdogs">Fast Food</option>
           <option value="tradamerican">American</option>
-          <option value="italian">Italian</option>
-          <option value="french">French</option>
           <option value="chinese">Chinese</option>
+          <option value="hotdogs">Fast Food</option>
+          <option value="french">French</option>
+          <option value="italian">Italian</option>
           <option value="mexican">Mexican</option>
           <option value="spanish">Spanish</option>
           <option value="vegetarian">Vegetarian</option>

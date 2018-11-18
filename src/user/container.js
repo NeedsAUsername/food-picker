@@ -6,7 +6,6 @@ import {deleteRestaurantAndDisplay} from '../actions/deleteRestaurantAndDisplay'
 import Restaurants from '../restaurants/index';
 
 class UserContainer extends React.Component {
-  // https://stackoverflow.com/questions/47970276/is-using-async-componentdidmount-good
   componentDidMount() {
     this.props.fetchUser();
   }

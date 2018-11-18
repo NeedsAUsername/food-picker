@@ -20,7 +20,7 @@ class AuthenticationInput extends React.Component {
   }
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="search-form">
         <label>Email</label>
         <input type="text" name="email" value={this.state.email}
           onChange={this.handleChange}/>

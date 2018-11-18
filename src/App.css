@@ -35,12 +35,13 @@
   display: flex;
   flex-direction: column;
 }
-.search-form input[type="text"], select{
+.search-form input, select{
   border: 1px solid green;
   font-size: 1.25em;
   padding: 10px 15px;
   border-radius: 60px;
   color: green;
+  margin: 5px;
 }
 @media only screen and (min-width: 1200) {
   .search-form input[type="text"], select{
@@ -51,7 +52,7 @@
   margin: 10px;
   font-size: 1.5em;
   border-radius: 60px;
-  font-size: 1.2em;
+  font-size: 1.25em;
 }
 .search-form input[type="submit"]:hover {
   background-color: green;
@@ -61,7 +62,11 @@
   outline: 0;
   background: 0;
 }
-
 .search-form label {
   font-size: 1.25em;
+}
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  min-width: 50vw;
 }

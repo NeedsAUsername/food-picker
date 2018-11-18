@@ -9,7 +9,7 @@
 .nav-bar {
   background-color: #282c34;
   min-height: 5vh;
-  min-width: 100vw;
+  width: 100vw;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -41,7 +41,7 @@
 .search-form input, select{
   border: 1px solid green;
   font-size: 1.25em;
-  padding: 10px 15px;
+  padding: 10px;
   border-radius: 60px;
   color: green;
   margin: 5px;

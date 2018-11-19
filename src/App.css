@@ -73,7 +73,7 @@
   background-color: green;
   color: white;
 }
-.search-form input:focus {
+.search-form input:focus, select:focus {
   outline: 0;
   background: 0;
 }

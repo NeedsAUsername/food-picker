@@ -14,7 +14,7 @@ class Restaurants extends React.Component {
   render () {
     return (
       <div>
-        {this.props.loading ? <div>Loading Restaurants...</div> : this.renderRestaurants()}
+        {this.props.loading ? <div>Searching Restaurants...</div> : this.renderRestaurants()}
       </div>
     )
   }

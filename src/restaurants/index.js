@@ -5,9 +5,9 @@ class Restaurants extends React.Component {
   renderRestaurants = () => (
     this.props.restaurants.map(restaurant =>
     <Restaurant key={restaurant.id} restaurant={restaurant}
+      userRestaurants= {this.props.userRestaurants}
       addRestaurant={() => this.props.addRestaurant(restaurant)}
       deleteRestaurant={() => this.props.deleteRestaurant(restaurant.id)}
-      userRestaurants={this.props.userRestaurants}
     />)
   )
 

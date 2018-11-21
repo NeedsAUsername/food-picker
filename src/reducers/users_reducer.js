@@ -1,8 +1,8 @@
 function usersReducer(state = {
   authenticated: false,
   email: '',
-  restaurantIds: [], // This is what is grabbed from db / saved to state
-  restaurants: [], // This is fetched on page load from yelp using restaurantIds
+  restaurantIds: [], // This is what is grabbed from rails db
+  restaurants: [], // This is fetched from yelp using restaurantIds
   logging_in: false,
   loggin_out: false,
   signing_up: false
@@ -22,10 +22,10 @@ function usersReducer(state = {
       }
 
     case 'DELETE_RESTAURANT':
-      const filteredRestaurants = state.restaurantIds.filter(id => id !== action.payload);
+      const filteredRestaurants = state.restaurants.filter(rest => rest.id !== action.payload);
       return {
         ...state,
-        restaurantIds: filteredRestaurants
+        restaurants: filteredRestaurants
       }
 
     case 'DELETE_RESTAURANT_AND_DISPLAY':

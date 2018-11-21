@@ -1,6 +1,6 @@
 //ToDo: Use redux here. Make sure to not fetch is user is not logged in.
 
-export function addRestaurant(restaurantId) {
+export function addRestaurant(restaurant) {
   const url = `${process.env.REACT_APP_RAILS_API}/restaurants`;
   const options = {
     method: 'POST',
@@ -10,7 +10,7 @@ export function addRestaurant(restaurantId) {
       'X-User-Email': localStorage.getItem('email'),
       'X-User-Token': localStorage.getItem('token')
     },
-    body: JSON.stringify({restaurantId: restaurantId})
+    body: JSON.stringify({restaurantId: restaurant.id})
   }
   fetch(url, options)
   .then(response => response.json())
@@ -18,6 +18,6 @@ export function addRestaurant(restaurantId) {
 
   return {
       type: 'ADD_RESTAURANT',
-      payload: restaurantId
+      payload: restaurant
   }
 }

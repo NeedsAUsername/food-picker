@@ -17,7 +17,7 @@ function usersReducer(state = {
       } else {
         return {
           ...state,
-          restaurantIds: [...state.restaurantIds, action.payload]
+          restaurants: [...state.restaurants, action.payload]
         }
       }
 
@@ -102,7 +102,7 @@ function usersReducer(state = {
       }
 
     case 'LOG_OUT':
-      localStorage.clear(); 
+      localStorage.clear();
       return {
         authenticated: false,
         email: '',
@@ -150,12 +150,6 @@ function usersReducer(state = {
           ...state,
           authenticated: false
         };
-      }
-
-    case 'EMPTY_RESTAURANTS':
-      return {
-        ...state,
-        restaurants: []
       }
 
     default:

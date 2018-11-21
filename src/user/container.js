@@ -11,7 +11,7 @@ class UserContainer extends React.Component {
       <div>
         <Restaurants restaurants={this.props.restaurants} loading={this.props.loading}
           deleteRestaurant={this.props.deleteRestaurantAndDisplay}
-          userRestaurants={this.props.restaurantIds}/>
+          userRestaurants={this.props.restaurants}/>
       </div>
     )
   }

@@ -5,5 +5,10 @@ The Plan:
 3) Have a page that chooses a random restaurant near them.
 4) Have a history page with the restaurants they've chosen. Allow like/dislike/link to yelp page.
 
-Idea!
-for the randomizer, have it be like tinder, where you swipe left/right, with pics from the restaurant!.
+Todo:
+fix actions.
+
+don't fetch user if local-storage is empty.
+
+take out the fetch action on every page.  
+have one fetch in app.js that gets the user data and adds it to redux state so we don't keep fetching on every page load.

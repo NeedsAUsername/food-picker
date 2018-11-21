@@ -5,12 +5,8 @@ import {connect} from 'react-redux';
 import {fetchRestaurants} from '../actions/fetchRestaurants';
 import {addRestaurant} from '../actions/addRestaurant';
 import {deleteRestaurant} from '../actions/deleteRestaurant';
-import {fetchUser} from '../actions/fetchUser';
 
 class SearchContainer extends React.Component {
-  componentDidMount() {
-    this.props.fetchUser();
-  }
 
   render () {
     return (
@@ -33,4 +29,4 @@ const mapStateToProps = (store) => {
 }
 
 export default connect(mapStateToProps,
-  {fetchRestaurants, addRestaurant, deleteRestaurant, fetchUser})(SearchContainer);
+  {fetchRestaurants, addRestaurant, deleteRestaurant})(SearchContainer);

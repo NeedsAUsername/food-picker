@@ -1,3 +1,5 @@
+//ToDo: Use redux here. Make sure to not fetch is user is not logged in.
+
 export function deleteRestaurant(restaurantId) {
   const url = `${process.env.REACT_APP_RAILS_API}/restaurants`;
   const options = {

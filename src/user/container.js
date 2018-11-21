@@ -1,14 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {fetchRestaurantById} from '../actions/fetchRestaurantById';
-import {fetchUser} from '../actions/fetchUser';
 import {deleteRestaurantAndDisplay} from '../actions/deleteRestaurantAndDisplay';
 import Restaurants from '../restaurants/index';
 
 class UserContainer extends React.Component {
-  componentDidMount() {
-    this.props.fetchUser();
-  }
+
   fetchRestaurants = () => {
     if (this.props.restaurants == "" && this.props.restaurantIds != "") {
       return this.props.restaurantIds.forEach(rest => this.props.fetchRestaurantById(rest))
@@ -35,4 +32,4 @@ const mapStateToProps = (store) => {
   }
 }
 
-export default connect(mapStateToProps, {fetchUser, fetchRestaurantById, deleteRestaurantAndDisplay})(UserContainer);
+export default connect(mapStateToProps, {fetchRestaurantById, deleteRestaurantAndDisplay})(UserContainer);

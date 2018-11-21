@@ -5,12 +5,9 @@ import RandomizerInput from './input';
 import {randomizeRestaurant} from '../actions/randomizeRestaurant';
 import {addRestaurant} from '../actions/addRestaurant';
 import {deleteRestaurant} from '../actions/deleteRestaurant';
-import {fetchUser} from '../actions/fetchUser';
 
 class RandomizerContainer extends React.Component {
-  componentDidMount() {
-    this.props.fetchUser();
-  }
+
   handleClick = (event) => {
     event.preventDefault();
     this.props.randomizeRestaurant();
@@ -34,4 +31,4 @@ const mapStateToProps = (state) => {
   }
 }
 export default connect(mapStateToProps,
-  {randomizeRestaurant, addRestaurant, deleteRestaurant, fetchUser})(RandomizerContainer);
+  {randomizeRestaurant, addRestaurant, deleteRestaurant})(RandomizerContainer);

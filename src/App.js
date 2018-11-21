@@ -9,6 +9,7 @@ import AuthenticationContainer from './authentication/container';
 import Navbar from './layout/navbar';
 import Footer from './layout/footer';
 import {emptyRestaurants} from './actions/emptyRestaurants';
+import {fetchUser} from './actions/fetchUser';
 
 const routes = [{path: '/', name: 'Home'},
   {path: '/random', name: 'Random'},
@@ -17,6 +18,11 @@ const routes = [{path: '/', name: 'Home'},
 ];
 
 class App extends Component {
+  componentDidMount() {
+    if (localStorage.email && localStorage.token) {
+      this.props.fetchUser();  
+    }
+  }
   render() {
     return (
       <Router>
@@ -33,4 +39,4 @@ class App extends Component {
   }
 }
 
-export default connect(null, {emptyRestaurants})(App);
+export default connect(null, {fetchUser, emptyRestaurants})(App);

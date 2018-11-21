@@ -7,10 +7,6 @@ import {logout} from '../actions/user/logout.js';
 
 class AuthenticationContainer extends React.Component {
 
-  // sort of like before_action: user_authenticated? in rails
-  componentDidMount() {
-    this.props.fetchUser()
-  }
   renderContent = () => {
     if(this.props.authenticated){
      return (
@@ -43,4 +39,4 @@ const mapStateToProps = (store) => {
     authenticated: store.user.authenticated
   }
 }
-export default connect(mapStateToProps, {fetchUser, logout})(AuthenticationContainer);
+export default connect(mapStateToProps, {logout})(AuthenticationContainer);

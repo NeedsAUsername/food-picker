@@ -6,15 +6,9 @@ import Restaurants from '../restaurants/index';
 
 class UserContainer extends React.Component {
 
-  fetchRestaurants = () => {
-    if (this.props.restaurants == "" && this.props.restaurantIds != "") {
-      return this.props.restaurantIds.forEach(rest => this.props.fetchRestaurantById(rest))
-    } else if (this.props.restaurantIds == "") {return <p>No Restaurants Saved</p>}
-  }
   render () {
     return (
       <div>
-        {this.fetchRestaurants()}
         <Restaurants restaurants={this.props.restaurants} loading={this.props.loading}
           deleteRestaurant={this.props.deleteRestaurantAndDisplay}
           userRestaurants={this.props.restaurantIds}/>

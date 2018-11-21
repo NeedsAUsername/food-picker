@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Login from './login';
 import SignUp from './signup';
-import {fetchUser} from '../actions/fetchUser.js';
 import {logout} from '../actions/user/logout.js';
 
 class AuthenticationContainer extends React.Component {

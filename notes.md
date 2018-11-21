@@ -12,3 +12,5 @@ don't fetch user if local-storage is empty.
 
 take out the fetch action on every page.  
 have one fetch in app.js that gets the user data and adds it to redux state so we don't keep fetching on every page load.
+
+Fix case where restaurant Id is invalid, and app breaks upon fetch.

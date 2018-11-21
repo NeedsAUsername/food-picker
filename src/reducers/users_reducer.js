@@ -102,6 +102,7 @@ function usersReducer(state = {
       }
 
     case 'LOG_OUT':
+      localStorage.clear(); 
       return {
         authenticated: false,
         email: '',

@@ -20,8 +20,13 @@ const routes = [{path: '/', name: 'Home'},
 class App extends Component {
   componentDidMount() {
     if (localStorage.email && localStorage.token) {
-      this.props.fetchUser();  
+      this.props.fetchUser();
     }
+  }
+  fetchRestaurants = () => {
+    if (this.props.restaurantIds.length > 0) {
+      return this.props.restaurantIds.forEach(rest => this.props.fetchRestaurantById(rest))
+    } else if (this.props.restaurantIds == "") {return <p>No Restaurants Saved</p>}
   }
   render() {
     return (
@@ -39,4 +44,10 @@ class App extends Component {
   }
 }
 
-export default connect(null, {fetchUser, emptyRestaurants})(App);
+const mapStateToProps = (store) => {
+  return {
+    restaurantIds: store.user.restaurantIds
+  }
+}
+
+export default connect(mapStateToProps, {fetchUser, emptyRestaurants})(App);

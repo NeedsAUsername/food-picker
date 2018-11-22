@@ -19,7 +19,6 @@ export function deleteRestaurant(restaurantId) {
       fetch(url, options)
       .then(response => response.json())
       .then(json => {
-        debugger
         dispatch({
           type: 'DELETE_RESTAURANT',
           payload: json

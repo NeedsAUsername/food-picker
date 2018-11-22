@@ -1,11 +1,13 @@
 export function randomizeRestaurant(zip) {
   return (dispatch) => {
     dispatch({type: 'LOADING_RESTAURANTS'})
-    return fetch(`${process.env.REACT_APP_PROXY}/https://api.yelp.com/v3/businesses/search?location=${zip}&limit=50`, {
+    const url = `${process.env.REACT_APP_PROXY}/https://api.yelp.com/v3/businesses/search?location=${zip}&limit=50`;
+    const options = {
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_YELP_API_KEY}`
       }
-    })
+    }
+    return fetch(url, options)
     .then(response => response.json())
     .then(data => {
       const maxNumber = data.businesses.length;

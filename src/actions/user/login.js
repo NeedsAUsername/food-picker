@@ -1,6 +1,9 @@
 export function login(formState) {
   return (dispatch) => {
-    dispatch({type: 'LOADING_LOG_IN'});
+    dispatch({
+      type: 'LOADING_LOG_IN'
+    });
+    const url = `${process.env.REACT_APP_RAILS_API}/sessions`;
     const options = {
       method: 'POST',
       headers: {
@@ -9,7 +12,7 @@ export function login(formState) {
       accepts: 'application/json',
       body: JSON.stringify(formState)
     }
-    return fetch(`${process.env.REACT_APP_RAILS_API}/sessions`, options)
+    return fetch(url, options)
     .then(response => response.json())
     .then(json => {
       dispatch({

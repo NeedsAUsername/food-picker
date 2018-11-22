@@ -1,6 +1,6 @@
 export function addRestaurant(restaurant) {
 
-  if(!!localStorage.email & !!localStorage.token) {
+  if (!!localStorage.email & !!localStorage.token) {
     return (dispatch) => {
       dispatch({
         type: 'LOADING_ADD_RESTAURANT'

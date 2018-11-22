@@ -40,6 +40,25 @@ function usersReducer(state = {
         loading: true
       }
 
+    case 'FETCH_USER':
+      // Called when user has localStorage credentials
+      // If credentials are invalid, payload will be null
+      if (action.payload) {
+        const restaurantIds = action.payload.restaurants.map(rest => rest.yelpNumber);
+        return {
+          ...state,
+          authenticated: true,
+          email: action.payload.email,
+          restaurantIds: restaurantIds
+        }
+      } else {
+        alert('Invalid Authentication- Check your local storage or log in again')
+        return {
+          ...state,
+          authenticated: false
+        };
+      }
+    //Uses restaurant ids from fetch_user to fetch retaurant objects from yelp
     case 'FETCH_RESTAURANT_BY_ID':
       if (state.restaurants.find(rest => rest.id === action.payload.id)) {
         return {
@@ -57,11 +76,7 @@ function usersReducer(state = {
 
     case 'LOADING_LOG_IN':
       console.log('logging in')
-      return {
-        ...state,
-        logging_in: true
-      }
-
+      return {...state, logging_in: true}
     case 'LOG_IN':
       console.log(action.payload)
       if (action.payload.status === 'not_authenticated') {
@@ -96,11 +111,7 @@ function usersReducer(state = {
       }
 
     case 'LOADING_LOG_OUT':
-      return {
-        ...state,
-        logging_out: true
-      }
-
+      return {...state, logging_out: true}
     case 'LOG_OUT':
       localStorage.clear();
       return {
@@ -115,11 +126,7 @@ function usersReducer(state = {
 
     case 'LOADING_SIGN_UP':
       console.log('logging in')
-      return {
-        ...state,
-        signing_up: true
-      }
-
+      return {...state, signing_up: true}
     case 'SIGN_UP':
       if (action.payload.status === 'Error') {
         alert('Error signing up. Make sure to input valid email and password');
@@ -131,25 +138,6 @@ function usersReducer(state = {
       return {
         ...state,
         signing_up: false
-      }
-
-    case 'FETCH_USER':
-      // Syncs the user from RAILS API with our redux store
-      // If credentials are invalid, payload will be null
-      if (action.payload) {
-        const restaurantIds = action.payload.restaurants.map(rest => rest.yelpNumber);
-        return {
-          ...state,
-          authenticated: true,
-          email: action.payload.email,
-          restaurantIds: restaurantIds
-        }
-      } else {
-        alert('Invalid Authentication- Check your local storage')
-        return {
-          ...state,
-          authenticated: false
-        };
       }
 
     default:

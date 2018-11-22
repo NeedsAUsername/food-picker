@@ -45,6 +45,7 @@ function usersReducer(state = {
       }
     case 'LOADING_DELETE_RESTAURANT':
       return {...state, deleting: true}
+
     case 'DELETE_RESTAURANT':
       let filteredRestaurants = state.restaurants.filter(rest => rest.id !== action.payload);
       if (action.payload.restaurantIdDeleted) {
@@ -57,21 +58,19 @@ function usersReducer(state = {
         deleting: false
       }
 
-    case 'LOADING_USER_RESTAURANT':
-      return {
-        ...state,
-        loading: true
-      }
-
     case 'FETCH_USER':
       if (action.payload) {
-        const restaurantIds = action.payload.restaurants.map(rest => rest.yelpNumber);
         return {
           ...state,
           authenticated: true,
           email: action.payload.email,
-          restaurantIds: restaurantIds
         }
+      }
+
+    case 'LOADING_USER_RESTAURANT':
+      return {
+        ...state,
+        loading: true
       }
     //Uses restaurant ids from fetch_user to fetch retaurant objects from yelp
     case 'FETCH_RESTAURANT_BY_ID':
@@ -83,7 +82,6 @@ function usersReducer(state = {
       } else {
         return {
           ...state,
-          restaurantIds: [],
           restaurants: [...state.restaurants, action.payload],
           loading: false
         }
@@ -91,6 +89,7 @@ function usersReducer(state = {
 
     case 'LOADING_LOG_IN':
       return {...state, logging_in: true}
+
     case 'LOG_IN':
       localStorage.setItem('token', action.payload.authentication_token);
       localStorage.setItem('email', action.payload.email);
@@ -104,11 +103,9 @@ function usersReducer(state = {
         }
       }
       else {
-        const restaurantIds = action.payload.restaurants.map(rest => rest.yelpNumber);
         return {
           ...state,
           email: action.payload.email,
-          restaurantIds: restaurantIds,
           authenticated: true,
           logging_in: false,
         }
@@ -116,12 +113,12 @@ function usersReducer(state = {
 
     case 'LOADING_LOG_OUT':
       return {...state, logging_out: true}
+
     case 'LOG_OUT':
       localStorage.clear();
       return {
         authenticated: false,
         email: '',
-        restaurantIds: [],
         restaurants: [],
         logging_in: false,
         loggin_out: false,
@@ -130,6 +127,7 @@ function usersReducer(state = {
 
     case 'LOADING_SIGN_UP':
       return {...state, signing_up: true}
+      
     case 'SIGN_UP':
       alert('Signed Up successfully!');
       return {

@@ -13,18 +13,16 @@ function usersReducer(state = {
 
   // Catch-all for error-handling
   // Rails API will send {status: error_message} if it encounters an error
-  // Will raise type error if action.payload.status directly and action.payload is undefined so need to nest the if statements
-  if (action.payload) {
-    if (action.payload.status) {
-      alert(action.payload.status);
-      return {
-        ...state,
-        logging_in: false,
-        loggin_out: false,
-        signing_up: false,
-        adding: false,
-        deleting: false
-      }
+  // Will raise type error if action.payload.status directly and action.payload is undefined
+  if (action.payload && action.payload.status) {
+    alert(action.payload.status);
+    return {
+      ...state,
+      logging_in: false,
+      loggin_out: false,
+      signing_up: false,
+      adding: false,
+      deleting: false
     }
   }
 
@@ -127,7 +125,7 @@ function usersReducer(state = {
 
     case 'LOADING_SIGN_UP':
       return {...state, signing_up: true}
-      
+
     case 'SIGN_UP':
       alert('Signed Up successfully!');
       return {

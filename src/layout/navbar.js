@@ -7,7 +7,9 @@ class Navbar extends React.Component {
     borderColor: 'yellow'
   })
   handleClick = () => {
-    this.props.emptyRestaurants()
+    if (this.props.restaurants.length > 0) {
+      this.props.emptyRestaurants();
+    }
   }
   renderNavLinks = () => {
     return this.props.routes.map((route, index) => <NavLink className="nav-links" key={index} to={route.path} exact activeStyle={this.current()} onClick={this.handleClick}>{route.name}</NavLink>);

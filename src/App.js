@@ -20,21 +20,18 @@ const routes = [{path: '/', name: 'Home'},
 
 class App extends Component {
   componentDidMount() {
-    if (localStorage.email && localStorage.token) {
+    if (!!localStorage.token & !!localStorage.email) {
       this.props.fetchUser();
     }
   }
-  fetchRestaurants = () => {
-    if (this.props.restaurantIds.length > 0) {
-      return this.props.restaurantIds.forEach(rest => this.props.fetchRestaurantById(rest))
-    }
-  }
   render() {
+    if (this.props.restaurantIds.length > 0) {
+      this.props.restaurantIds.forEach(rest => this.props.fetchRestaurantById(rest))
+    }
     return (
       <Router>
         <div className="app">
-          <Navbar emptyRestaurants={this.props.emptyRestaurants} routes={routes}/>
-          {this.fetchRestaurants()}
+          <Navbar emptyRestaurants={this.props.emptyRestaurants} restaurants={this.props.restaurants} routes={routes}/>
           <Route exact path='/' component={SearchContainer} />
           <Route exact path='/random' component={RandomizerContainer} />
           <Route exact path='/saved' component={UserContainer} />
@@ -48,7 +45,8 @@ class App extends Component {
 
 const mapStateToProps = (store) => {
   return {
-    restaurantIds: store.user.restaurantIds
+    restaurantIds: store.user.restaurantIds,
+    restaurants: store.yelp.restaurants
   }
 }
 

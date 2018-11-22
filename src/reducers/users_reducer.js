@@ -6,18 +6,21 @@ function usersReducer(state = {
   logging_in: false,
   loggin_out: false,
   signing_up: false,
+  adding: false,
+  deleting: false
 }, action) {
   console.log(action);
 
   switch(action.type) {
 
     case 'ADD_RESTAURANT':
-      if (state.restaurantIds.find(rest => rest === action.payload)){
+      if (state.restaurants.find(rest => rest.id === action.payload.id)){
         return state;
       } else {
         return {
           ...state,
-          restaurants: [...state.restaurants, action.payload]
+          restaurants: [...state.restaurants, action.payload],
+          adding: true
         }
       }
 
@@ -147,7 +150,7 @@ function usersReducer(state = {
           restaurantIds: restaurantIds
         }
       } else {
-        console.log('not logged in')
+        alert('Invalid Authentication- Check your local storage')
         return {
           ...state,
           authenticated: false

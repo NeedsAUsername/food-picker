@@ -9,7 +9,8 @@ export function fetchRestaurantById(id) {
       }
     })
     .then(response => response.json())
-    .then(data =>{
+    .then(data => {
+      // If Yelp cannot find it, it will return an error
       if (data.error) {
         alert(data.error.description + 'Id: ' + id);
       } else {

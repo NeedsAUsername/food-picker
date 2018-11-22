@@ -19,14 +19,10 @@ export function addRestaurant(restaurant) {
       return fetch(url, options)
       .then(response => response.json())
       .then(json => {
-        if (json.status) {
-          alert(json.status);
-        } else {
-          dispatch({
-            type: 'ADD_RESTAURANT',
-            payload: restaurant
-          })
-        }
+        dispatch({
+          type: 'ADD_RESTAURANT',
+          payload: restaurant
+        })
       })
     }
   }

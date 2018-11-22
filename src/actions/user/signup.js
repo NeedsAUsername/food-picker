@@ -12,7 +12,6 @@ export function signup(formState) {
     return fetch(`${process.env.REACT_APP_RAILS_API}/users`, options)
     .then(response => response.json())
     .then(json => {
-      console.log(json);
       dispatch({
         type: 'SIGN_UP',
         payload: json

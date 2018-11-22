@@ -14,12 +14,14 @@ export function logout(){
       }
     }
     fetch(url, options)
-    .then(response => {
+    .then(response => response.json())
+    .then(json => {
       dispatch({
         type: 'LOG_OUT',
-        payload: response
+        payload: json
       })
     })
+    .catch(error => console.log(error))
   }
 
 

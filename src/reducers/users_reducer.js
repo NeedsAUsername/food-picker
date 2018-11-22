@@ -11,6 +11,23 @@ function usersReducer(state = {
 }, action) {
   console.log(action);
 
+  // Catch-all for error-handling
+  // Rails API will send {status: error_message} if it encounters an error
+  // Will raise type error if action.payload.status directly and action.payload is undefined so need to nest the if statements
+  if (action.payload) {
+    if (action.payload.status) {
+      alert(action.payload.status);
+      return {
+        ...state,
+        logging_in: false,
+        loggin_out: false,
+        signing_up: false,
+        adding: false,
+        deleting: false
+      }
+    }
+  }
+
   switch(action.type) {
 
     case 'LOADING_ADD_RESTAURANT':
@@ -41,8 +58,6 @@ function usersReducer(state = {
       }
 
     case 'FETCH_USER':
-      // Called when user has localStorage credentials
-      // If credentials are invalid, payload will be null
       if (action.payload) {
         const restaurantIds = action.payload.restaurants.map(rest => rest.yelpNumber);
         return {
@@ -51,12 +66,6 @@ function usersReducer(state = {
           email: action.payload.email,
           restaurantIds: restaurantIds
         }
-      } else {
-        alert('Invalid Authentication- Check your local storage or log in again')
-        return {
-          ...state,
-          authenticated: false
-        };
       }
     //Uses restaurant ids from fetch_user to fetch retaurant objects from yelp
     case 'FETCH_RESTAURANT_BY_ID':
@@ -75,38 +84,27 @@ function usersReducer(state = {
       }
 
     case 'LOADING_LOG_IN':
-      console.log('logging in')
       return {...state, logging_in: true}
     case 'LOG_IN':
-      console.log(action.payload)
-      if (action.payload.status === 'not_authenticated') {
-        alert('user credentials not authenticated');
+      localStorage.setItem('token', action.payload.authentication_token);
+      localStorage.setItem('email', action.payload.email);
+      if (localStorage.getItem('token') !== action.payload.authentication_token ||
+          localStorage.getItem('email) !== action.payload.email')) {
+        alert('Error in setting auth token');
         return {
           ...state,
           authenticated: false,
-          logging_in: false
+          logging_in: false,
         }
-      } else {
-        localStorage.setItem('token', action.payload.authentication_token);
-        localStorage.setItem('email', action.payload.email);
-        if (localStorage.getItem('token') !== action.payload.authentication_token ||
-            localStorage.getItem('email) !== action.payload.email')) {
-          alert('Error in setting auth token');
-          return {
-            ...state,
-            authenticated: false,
-            logging_in: false,
-          }
-        }
-        else {
-          const restaurantIds = action.payload.restaurants.map(rest => rest.yelpNumber);
-          return {
-            ...state,
-            email: action.payload.email,
-            restaurantIds: restaurantIds,
-            authenticated: true,
-            logging_in: false,
-          }
+      }
+      else {
+        const restaurantIds = action.payload.restaurants.map(rest => rest.yelpNumber);
+        return {
+          ...state,
+          email: action.payload.email,
+          restaurantIds: restaurantIds,
+          authenticated: true,
+          logging_in: false,
         }
       }
 
@@ -125,16 +123,9 @@ function usersReducer(state = {
       }
 
     case 'LOADING_SIGN_UP':
-      console.log('logging in')
       return {...state, signing_up: true}
     case 'SIGN_UP':
-      if (action.payload.status === 'Error') {
-        alert('Error signing up. Make sure to input valid email and password');
-      } else if (action.payload.status === 'Email taken') {
-        alert('Email is taken');
-      } else {
-        alert('Signed Up successfully!');
-      }
+      alert('Signed Up successfully!');
       return {
         ...state,
         signing_up: false

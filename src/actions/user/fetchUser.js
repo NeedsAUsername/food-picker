@@ -10,7 +10,6 @@ export function fetchUser() {
     fetch(url, options)
     .then(response => response.json())
     .then(json => {
-      // json will contain user attributes if found, otherwise null
       dispatch({
         type: 'FETCH_USER',
         payload: json

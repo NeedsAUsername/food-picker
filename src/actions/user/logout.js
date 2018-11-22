@@ -16,7 +16,6 @@ export function logout(){
     fetch(url, options)
     .then(response => response.json())
     .then(json => {
-      debugger
       dispatch({
         type: 'LOG_OUT',
         payload: json

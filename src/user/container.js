@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {fetchRestaurantById} from '../actions/fetchRestaurantById';
-import {deleteRestaurantAndDisplay} from '../actions/deleteRestaurantAndDisplay';
+import {deleteRestaurant} from '../actions/deleteRestaurant';
 import Restaurants from '../restaurants/index';
 
 class UserContainer extends React.Component {
@@ -10,7 +10,7 @@ class UserContainer extends React.Component {
     return (
       <div>
         <Restaurants restaurants={this.props.restaurants} loading={this.props.loading}
-          deleteRestaurant={this.props.deleteRestaurantAndDisplay}
+          deleteRestaurant={this.props.deleteRestaurant}
           userRestaurants={this.props.restaurants}/>
       </div>
     )
@@ -26,4 +26,4 @@ const mapStateToProps = (store) => {
   }
 }
 
-export default connect(mapStateToProps, {fetchRestaurantById, deleteRestaurantAndDisplay})(UserContainer);
+export default connect(mapStateToProps, {fetchRestaurantById, deleteRestaurant})(UserContainer);

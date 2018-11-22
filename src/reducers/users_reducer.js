@@ -31,15 +31,6 @@ function usersReducer(state = {
         restaurants: filteredRestaurants
       }
 
-    case 'DELETE_RESTAURANT_AND_DISPLAY':
-      const filteredRestaurantIds = state.restaurantIds.filter(id => id !== action.payload);
-      const filteredRestaurantsDisplay = state.restaurants.filter(rest => rest.id !== action.payload);
-      return {
-        ...state,
-        restaurantIds: filteredRestaurantIds,
-        restaurants: filteredRestaurantsDisplay
-      }
-
     case 'LOADING_YOUR_RESTAURANTS':
       return {
         ...state,
@@ -55,6 +46,7 @@ function usersReducer(state = {
       } else {
         return {
           ...state,
+          restaurantIds: [],
           restaurants: [...state.restaurants, action.payload],
           loading: false
         }

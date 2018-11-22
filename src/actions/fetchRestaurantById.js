@@ -15,7 +15,7 @@ export function fetchRestaurantById(id) {
       } else {
         dispatch({
           type: 'FETCH_RESTAURANT_BY_ID',
-          payload: data
+          payload: data,
         })
       }
     })

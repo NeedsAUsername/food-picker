@@ -1,5 +1,3 @@
-//ToDo: Use redux here. Make sure to not fetch is user is not logged in.
-
 export function addRestaurant(restaurant) {
 
   if(!!localStorage.email & !!localStorage.token) {

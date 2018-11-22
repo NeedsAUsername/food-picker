@@ -24,6 +24,7 @@ class App extends Component {
       this.props.fetchUser();
     }
   }
+
   render() {
     if (this.props.restaurantIds.length > 0) {
       this.props.restaurantIds.forEach(rest => this.props.fetchRestaurantById(rest))

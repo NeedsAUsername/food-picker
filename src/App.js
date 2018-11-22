@@ -10,7 +10,6 @@ import Navbar from './layout/navbar';
 import Footer from './layout/footer';
 import {emptyRestaurants} from './actions/yelp/emptyRestaurants';
 import {fetchUser} from './actions/user/fetchUser';
-import {fetchRestaurantById} from './actions/user/fetchRestaurantById';
 
 const routes = [{path: '/', name: 'Home'},
   {path: '/random', name: 'Random'},
@@ -26,9 +25,6 @@ class App extends Component {
   }
 
   render() {
-    if (this.props.restaurantIds.length > 0) {
-      this.props.restaurantIds.forEach(rest => this.props.fetchRestaurantById(rest))
-    }
     return (
       <Router>
         <div className="app">
@@ -52,4 +48,4 @@ const mapStateToProps = (store) => {
 }
 
 export default connect(mapStateToProps,
-  {fetchUser, fetchRestaurantById, emptyRestaurants})(App);
+  {fetchUser, emptyRestaurants})(App);

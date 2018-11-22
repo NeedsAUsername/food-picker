@@ -1,8 +1,8 @@
 function usersReducer(state = {
   authenticated: false,
   email: '',
-  restaurantIds: [], // This is what is grabbed from rails db
-  restaurants: [], // This is fetched from yelp using restaurantIds
+  // User db contains restaurant Ids. On site mount, fetches yelp info using those ids and fills this restaurants array with them
+  restaurants: [],
   logging_in: false,
   loggin_out: false,
   signing_up: false,
@@ -57,7 +57,7 @@ function usersReducer(state = {
         deleting: false
       }
 
-    case 'LOADING_YOUR_RESTAURANTS':
+    case 'LOADING_USER_RESTAURANT':
       return {
         ...state,
         loading: true

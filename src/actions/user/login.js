@@ -19,8 +19,10 @@ export function login(formState) {
         type: 'LOG_IN',
         payload: json
       })
-      if (json.restaurants.length > 0) {
-        json.restaurants.forEach(rest => fetchRestaurantById(rest.yelpNumber, dispatch))
+      if (json.restaurants) {
+        if (json.restaurants.length > 0) {
+          json.restaurants.forEach(rest => fetchRestaurantById(rest.yelpNumber, dispatch))
+        }
       }
     })
     .catch(error => console.log(error))

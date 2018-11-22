@@ -14,8 +14,10 @@ export function fetchUser() {
         type: 'FETCH_USER',
         payload: json
       })
-      if (json.restaurants.length > 0) {
-        json.restaurants.forEach(rest => fetchRestaurantById(rest.yelpNumber, dispatch))
+      if (json.restaurants) {
+        if (json.restaurants.length > 0) {
+          json.restaurants.forEach(rest => fetchRestaurantById(rest.yelpNumber, dispatch))  
+        }
       }
     })
   }

@@ -2,9 +2,9 @@ import React from 'react';
 import SearchInput from './input';
 import Restaurants from '../restaurants/index';
 import {connect} from 'react-redux';
-import {fetchRestaurants} from '../actions/fetchRestaurants';
-import {addRestaurant} from '../actions/addRestaurant';
-import {deleteRestaurant} from '../actions/deleteRestaurant';
+import {addRestaurant} from '../actions/user/addRestaurant';
+import {deleteRestaurant} from '../actions/user/deleteRestaurant';
+import {fetchRestaurants} from '../actions/yelp/fetchRestaurants';
 
 class SearchContainer extends React.Component {
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchRestaurantById} from '../actions/fetchRestaurantById';
-import {deleteRestaurant} from '../actions/deleteRestaurant';
+import {deleteRestaurant} from '../actions/user/deleteRestaurant';
 import Restaurants from '../restaurants/index';
 
 class UserContainer extends React.Component {
@@ -19,11 +18,9 @@ class UserContainer extends React.Component {
 
 const mapStateToProps = (store) => {
   return {
-    loggedIn: store.user.authenticated,
     loading: store.user.loading,
-    restaurantIds: store.user.restaurantIds,
     restaurants: store.user.restaurants
   }
 }
 
-export default connect(mapStateToProps, {fetchRestaurantById, deleteRestaurant})(UserContainer);
+export default connect(mapStateToProps, {deleteRestaurant})(UserContainer);

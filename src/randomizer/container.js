@@ -2,9 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Restaurants from '../restaurants/index';
 import RandomizerInput from './input';
-import {randomizeRestaurant} from '../actions/randomizeRestaurant';
-import {addRestaurant} from '../actions/addRestaurant';
-import {deleteRestaurant} from '../actions/deleteRestaurant';
+import {randomizeRestaurant} from '../actions/yelp/randomizeRestaurant';
+import {addRestaurant} from '../actions/user/addRestaurant';
+import {deleteRestaurant} from '../actions/user/deleteRestaurant';
 
 class RandomizerContainer extends React.Component {
 

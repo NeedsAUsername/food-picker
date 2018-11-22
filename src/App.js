@@ -8,9 +8,9 @@ import UserContainer from './user/container';
 import AuthenticationContainer from './authentication/container';
 import Navbar from './layout/navbar';
 import Footer from './layout/footer';
-import {emptyRestaurants} from './actions/emptyRestaurants';
-import {fetchUser} from './actions/fetchUser';
-import {fetchRestaurantById} from './actions/fetchRestaurantById';
+import {emptyRestaurants} from './actions/yelp/emptyRestaurants';
+import {fetchUser} from './actions/user/fetchUser';
+import {fetchRestaurantById} from './actions/user/fetchRestaurantById';
 
 const routes = [{path: '/', name: 'Home'},
   {path: '/random', name: 'Random'},

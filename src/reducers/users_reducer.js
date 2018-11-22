@@ -84,11 +84,13 @@ function usersReducer(state = {
             authenticated: false,
             logging_in: false,
           }
-        } else {
-          console.log('logged in')
+        }
+        else {
+          const restaurantIds = action.payload.restaurants.map(rest => rest.yelpNumber);
           return {
             ...state,
             email: action.payload.email,
+            restaurantIds: restaurantIds,
             authenticated: true,
             logging_in: false,
           }

@@ -10,6 +10,7 @@ import Navbar from './layout/navbar';
 import Footer from './layout/footer';
 import {emptyRestaurants} from './actions/emptyRestaurants';
 import {fetchUser} from './actions/fetchUser';
+import {fetchRestaurantById} from './actions/fetchRestaurantById';
 
 const routes = [{path: '/', name: 'Home'},
   {path: '/random', name: 'Random'},
@@ -24,15 +25,16 @@ class App extends Component {
     }
   }
   fetchRestaurants = () => {
-    if (this.props.restaurantIds.length > 0) {
+    if (this.props.restaurantIds.length > 0) { 
       return this.props.restaurantIds.forEach(rest => this.props.fetchRestaurantById(rest))
-    } else if (this.props.restaurantIds == "") {return <p>No Restaurants Saved</p>}
+    }
   }
   render() {
     return (
       <Router>
         <div className="app">
           <Navbar emptyRestaurants={this.props.emptyRestaurants} routes={routes}/>
+          {this.fetchRestaurants()}
           <Route exact path='/' component={SearchContainer} />
           <Route exact path='/random' component={RandomizerContainer} />
           <Route exact path='/saved' component={UserContainer} />
@@ -50,4 +52,5 @@ const mapStateToProps = (store) => {
   }
 }
 
-export default connect(mapStateToProps, {fetchUser, emptyRestaurants})(App);
+export default connect(mapStateToProps,
+  {fetchUser, fetchRestaurantById, emptyRestaurants})(App);

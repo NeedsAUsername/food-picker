@@ -13,6 +13,9 @@ function usersReducer(state = {
 
   switch(action.type) {
 
+    case 'LOADING_ADD_RESTAURANT':
+      return {...state, adding: true}
+
     case 'ADD_RESTAURANT':
       if (state.restaurants.find(rest => rest.id === action.payload.id)){
         return state;
@@ -20,7 +23,7 @@ function usersReducer(state = {
         return {
           ...state,
           restaurants: [...state.restaurants, action.payload],
-          adding: true
+          adding: false
         }
       }
 

@@ -1,5 +1,4 @@
 export function fetchRestaurantById(id) {
-  debugger
   return (dispatch) => {
     dispatch({
       type: 'LOADING_YOUR_RESTAURANTS'
@@ -11,10 +10,14 @@ export function fetchRestaurantById(id) {
     })
     .then(response => response.json())
     .then(data =>{
-      dispatch({
-        type: 'FETCH_RESTAURANT_BY_ID',
-        payload: data
-      })
+      if (data.error) {
+        alert(data.error.description + 'Id: ' + id);
+      } else {
+        dispatch({
+          type: 'FETCH_RESTAURANT_BY_ID',
+          payload: data
+        })
+      }
     })
   }
 }

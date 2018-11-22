@@ -5,7 +5,7 @@ function usersReducer(state = {
   restaurants: [], // This is fetched from yelp using restaurantIds
   logging_in: false,
   loggin_out: false,
-  signing_up: false
+  signing_up: false,
 }, action) {
   console.log(action);
 

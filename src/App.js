@@ -25,7 +25,7 @@ class App extends Component {
     }
   }
   fetchRestaurants = () => {
-    if (this.props.restaurantIds.length > 0) { 
+    if (this.props.restaurantIds.length > 0) {
       return this.props.restaurantIds.forEach(rest => this.props.fetchRestaurantById(rest))
     }
   }

@@ -43,12 +43,18 @@ function usersReducer(state = {
           adding: false
         }
       }
-
+    case 'LOADING_DELETE_RESTAURANT':
+      return {...state, deleting: true}
     case 'DELETE_RESTAURANT':
-      const filteredRestaurants = state.restaurants.filter(rest => rest.id !== action.payload);
+      let filteredRestaurants = state.restaurants.filter(rest => rest.id !== action.payload);
+      if (action.payload.restaurantIdDeleted) {
+        // If user was logged in and a restaurant in db was deleted
+        filteredRestaurants = state.restaurants.filter(rest => rest.id !== action.payload.restaurantIdDeleted)
+      }
       return {
         ...state,
-        restaurants: filteredRestaurants
+        restaurants: filteredRestaurants,
+        deleting: false
       }
 
     case 'LOADING_YOUR_RESTAURANTS':

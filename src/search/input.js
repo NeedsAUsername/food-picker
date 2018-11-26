@@ -8,6 +8,7 @@ class SearchInput extends React.Component {
     category: 'none'
   }
   handleChange = (event) => {
+    console.log(event);
     this.setState({
       [event.target.name]: event.target.value
     })

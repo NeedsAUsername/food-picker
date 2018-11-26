@@ -24,6 +24,7 @@ export function addRestaurant(restaurant) {
           payload: restaurant
         })
       })
+      .catch(error => console.log(error))
     }
   }
   else {

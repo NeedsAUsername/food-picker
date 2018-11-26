@@ -18,6 +18,7 @@ export function fetchUser() {
         json.restaurants.forEach(rest => fetchRestaurantById(rest.yelpNumber, dispatch))
       }
     })
+    .catch(error => console.log(error))
   }
 }
 

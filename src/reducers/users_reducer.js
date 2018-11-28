@@ -63,6 +63,8 @@ function usersReducer(state = {
           authenticated: true,
           email: action.payload.email,
         }
+      } else {
+        return state;
       }
 
     case 'LOADING_USER_RESTAURANT':

@@ -21,7 +21,7 @@ export function logout(){
         payload: json
       })
     })
-    .catch(error => console.log(error))
+    .catch(error => alert(error))
   }
 
 

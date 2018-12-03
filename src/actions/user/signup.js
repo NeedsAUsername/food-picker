@@ -17,6 +17,6 @@ export function signup(formState) {
         payload: json
       })
     })
-    .catch(error => console.log(error))
+    .catch(error => alert(error))
   }
 }

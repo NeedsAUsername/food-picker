@@ -23,7 +23,9 @@ export function login(formState) {
           json.restaurants.forEach(rest => fetchRestaurantById(rest.yelpNumber, dispatch))
       }
     })
-    .catch(error => console.log(error))
+    .catch(error => {
+      alert(error)
+    })
   }
 }
 
@@ -48,4 +50,5 @@ function fetchRestaurantById(id, dispatch) {
       })
     }
   })
+  .catch(error => alert(error))
 }

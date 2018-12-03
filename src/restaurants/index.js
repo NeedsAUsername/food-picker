@@ -1,4 +1,5 @@
 import React from 'react';
+import Spinner from 'react-spinkit';
 import Restaurant from './component';
 
 class Restaurants extends React.Component {
@@ -10,11 +11,17 @@ class Restaurants extends React.Component {
       deleteRestaurant={() => this.props.deleteRestaurant(restaurant.id)}
     />)
   )
+  renderLoadingIcon = () => (
+    <div className="icon-wrapper">
+      Loading Restaurants...
+      <Spinner name="circle" color="blue" fadeIn="none"/>
+    </div>
+  )
 
   render () {
     return (
       <div>
-        {this.props.loading ? <div>Loading Restaurants...</div> : this.renderRestaurants()}
+        {this.props.loading ? this.renderLoadingIcon() : this.renderRestaurants()}
       </div>
     )
   }

@@ -6,6 +6,8 @@ import {addRestaurant} from '../actions/user/addRestaurant';
 import {deleteRestaurant} from '../actions/user/deleteRestaurant';
 import {fetchRestaurants} from '../actions/yelp/fetchRestaurants';
 
+
+
 class SearchContainer extends React.Component {
 
   render () {

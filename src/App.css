@@ -85,3 +85,9 @@
   flex-direction: column;
   min-width: 50vw;
 }
+
+.icon-wrapper {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}

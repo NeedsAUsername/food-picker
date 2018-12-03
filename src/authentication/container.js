@@ -17,7 +17,7 @@ class AuthenticationContainer extends React.Component {
       )
     } else if (this.props.loading) {
       return (
-        <Spinner name="circle" />
+        <Spinner name="circle" color="blue" fadeIn="none"/>
       )
     } else {
       return (

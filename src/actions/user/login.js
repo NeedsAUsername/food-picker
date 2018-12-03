@@ -24,7 +24,10 @@ export function login(formState) {
       }
     })
     .catch(error => {
-      alert(error)
+      dispatch({
+        type: 'error',
+        payload: {status: error}
+      })
     })
   }
 }

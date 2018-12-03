@@ -24,7 +24,12 @@ export function addRestaurant(restaurant) {
           payload: restaurant
         })
       })
-      .catch(error => console.log(error))
+      .catch(error => {
+        dispatch({
+          type: 'error',
+          payload: {status: error}
+        })
+      })
     }
   }
   else {

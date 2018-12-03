@@ -21,7 +21,12 @@ export function logout(){
         payload: json
       })
     })
-    .catch(error => alert(error))
+    .catch(error => {
+      dispatch({
+        type: 'error',
+        payload: {status: error}
+      })
+    })
   }
 
 

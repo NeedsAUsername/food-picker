@@ -24,7 +24,12 @@ export function deleteRestaurant(restaurantId) {
           payload: json
         })
       })
-      .catch(error => console.log(error))
+      .catch(error => {
+        dispatch({
+          type: 'error',
+          payload: {status: error}
+        })
+      })
     }
   }
   else {

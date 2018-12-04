@@ -10,6 +10,11 @@
     font-size: .8em;
   }
 }
+
+.button:hover {
+  color: #0033FF;
+}
+
 .nav-bar {
   background-color: #282c34;
   min-height: 5vh;

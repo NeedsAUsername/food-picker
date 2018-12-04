@@ -14,8 +14,8 @@ const restaurant = (props) =>  {
       <div>
         {rest.isClosed ? 'Closed Right Now :(' : 'Open Now!'}
         {props.userRestaurants.find(restaurant => restaurant.id === rest.id) ?
-          <button onClick={props.deleteRestaurant}>Remove From Saved</button> :
-            <button onClick={props.addRestaurant}>Save</button>}
+          <button onClick={props.deleteRestaurant} className="button">Remove From Saved</button> :
+            <button onClick={props.addRestaurant} className="button">Save</button>}
       </div>
     </div>
   )

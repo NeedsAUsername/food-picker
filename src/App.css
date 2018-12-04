@@ -27,6 +27,9 @@
   margin: 1vw;
   text-decoration: none;
 }
+.nav-links:hover {
+  color: #D0D0D0;
+}
 
 .restaurant-container {
   border-style: solid;

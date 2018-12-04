@@ -3,8 +3,8 @@ import {NavLink} from 'react-router-dom';
 
 class Navbar extends React.Component {
   current = () => ({
-    border: 'solid',
-    borderColor: 'yellow'
+    borderBottom: 'solid',
+    borderColor: 'yellow',
   })
   handleClick = () => {
     if (this.props.restaurants.length > 0) {

@@ -45,6 +45,7 @@
 @media only screen and (min-width: 640px) {
   .restaurant-container {
     max-width: 380px;
+    box-shadow: 8px 8px 6px -6px black;
   }
 }
 .search-form {

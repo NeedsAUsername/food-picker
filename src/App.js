@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import {connect} from 'react-redux';
+import foodBackground1 from './images/food-background-1.jpg';
+import foodBackground2 from './images/food-background-2.jpg';
+import foodBackground3 from './images/food-background-3.jpg';
+import foodBackground4 from './images/food-background-4.jpg';
 import SearchContainer from './search/container';
 import RandomizerContainer from './randomizer/container';
 import UserContainer from './user/container';
@@ -29,6 +33,7 @@ class App extends Component {
       <Router>
         <div className="app">
           <Navbar emptyRestaurants={this.props.emptyRestaurants} restaurants={this.props.restaurants} routes={routes}/>
+          <div class="background"><img src={foodBackground1}></img></div>
           <Route exact path='/' component={SearchContainer} />
           <Route exact path='/random' component={RandomizerContainer} />
           <Route exact path='/saved' component={UserContainer} />

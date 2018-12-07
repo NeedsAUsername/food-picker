@@ -24,6 +24,8 @@
   .background img {
     max-height: 100%;
     max-width: 100%;
+    min-height: 1000px;
+    min-width: 1500px;
   }
   .readable {
     background-color: rgba(255,255,255, 0.6);

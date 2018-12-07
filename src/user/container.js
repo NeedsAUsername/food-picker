@@ -8,7 +8,7 @@ class UserContainer extends React.Component {
   render () {
     return (
       <div>
-        {this.props.restaurants.length > 0 ? null : 'No Saved Restaurants'}
+        {this.props.restaurants.length > 0 ? null : <div className="readable-bordered">No Saved Restaurants</div>}
         <Restaurants restaurants={this.props.restaurants} loading={this.props.loading}
           deleteRestaurant={this.props.deleteRestaurant}
           userRestaurants={this.props.restaurants}/>

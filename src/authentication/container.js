@@ -10,10 +10,10 @@ class AuthenticationContainer extends React.Component {
   renderContent = () => {
     if(this.props.authenticated){
      return (
-        <React.Fragment>
+        <div className="readable">
          <h1> Welcome {this.props.email} </h1>
          <button onClick={this.props.logout}>Logout</button>
-        </React.Fragment>
+        </div>
       )
     } else if (this.props.loading) {
       return (
@@ -21,10 +21,10 @@ class AuthenticationContainer extends React.Component {
       )
     } else {
       return (
-        <React.Fragment>
+        <div className="readable">
           <Login />
           <SignUp />
-        </React.Fragment>)
+        </div>)
     }
   }
 

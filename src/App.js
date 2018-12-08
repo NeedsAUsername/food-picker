@@ -30,7 +30,7 @@ class App extends Component {
       <Router>
         <div className="app">
           <Navbar emptyRestaurants={this.props.emptyRestaurants} restaurants={this.props.restaurants} routes={routes}/>
-          <div className="background"><img src={foodBackground1}></img></div>
+          <div className="background"><img src={foodBackground1} alt="background"></img></div>
           <Route exact path='/' component={SearchContainer} />
           <Route exact path='/random' component={RandomizerContainer} />
           <Route exact path='/saved' component={UserContainer} />

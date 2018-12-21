@@ -17,7 +17,7 @@ class Navbar extends React.Component {
   render () {
     return (
       <nav className="nav-bar">
-        <h3>Restaurant Picker</h3>
+        <h3>Restaurant Finder</h3>
         {this.renderNavLinks()}
       </nav>
     )

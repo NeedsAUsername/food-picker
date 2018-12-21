@@ -22,7 +22,7 @@ class SearchInput extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} className="search-form">
         <label htmlFor="location">Location</label>
-        <input type="text" id="location" name="location" onChange={this.handleChange} value={this.state.location} required/>
+        <input type="text" id="location" name="location" onChange={this.handleChange} value={this.state.location} placeholder="zipcode or address"required/>
         <label htmlFor="price">Price</label>
         <select onChange={this.handleChange} id="price" value={this.state.price} name="price">
           <option value="">Any</option>
@@ -43,7 +43,7 @@ class SearchInput extends React.Component {
           <option value="spanish">Spanish</option>
           <option value="vegetarian">Vegetarian</option>
         </select>
-        <label htmlFor="hot">Only want new restaurants?</label>
+        <label htmlFor="hot">Only want recently opened restaurants?</label>
         <select onChange={this.handleChange} id="hot" name="hot" value={this.state.hot}>
           <option value="">No</option>
           <option value="hot_and_new">Sure</option>

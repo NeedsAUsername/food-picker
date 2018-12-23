@@ -21,7 +21,7 @@ class Restaurants extends React.Component {
   componentDidUpdate() {
     let rest = document.querySelector('.content');
     if (this.props.restaurants && rest) {
-      rest.scrollIntoView()
+      rest.scrollIntoView(true, {behavior: 'smooth'})
     }
   }
   render () {

@@ -18,12 +18,7 @@ class Restaurants extends React.Component {
       <Spinner name="circle" color="blue" fadeIn="none"/>
     </div>
   )
-  componentDidUpdate() {
-    let rest = document.querySelector('.content');
-    if (this.props.restaurants && rest) {
-      rest.scrollIntoView(true, {behavior: 'smooth'})
-    }
-  }
+
   render () {
     return (
       <div className="content">

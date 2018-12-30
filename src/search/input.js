@@ -16,7 +16,11 @@ class SearchInput extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const params = `location=${this.state.location}&price=${this.state.price}&attributes=${this.state.hot}&categories=${this.state.category}`;
-    this.props.fetchRestaurants(params);
+    this.props.fetchRestaurants(params)
+    .then( () => {
+      let rest = document.querySelector('.content');
+      rest.scrollIntoView(true, {behavior: 'smooth'})
+    });
   }
   render () {
     return (

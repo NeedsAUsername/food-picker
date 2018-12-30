@@ -15,7 +15,7 @@ class SearchContainer extends React.Component {
       <div>
         <SearchInput fetchRestaurants={this.props.fetchRestaurants}/>
         <Restaurants loading={this.props.loading} restaurants={this.props.restaurants}
-          userRestaurants={this.props.userRestaurants} addRestaurant={this.props.addRestaurant} deleteRestaurant={this.props.deleteRestaurant} />
+          userRestaurants={this.props.userRestaurants} addRestaurant={this.props.addRestaurant} deleteRestaurant={this.props.deleteRestaurant} searchResults={true} />
         {this.props.noResults ? <div className="readable">'No Results'</div> : null}
       </div>
     )

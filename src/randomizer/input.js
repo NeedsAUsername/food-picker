@@ -11,7 +11,11 @@ class RandomizerInput extends React.Component {
   }
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.randomizeRestaurant(this.state.location);
+    this.props.randomizeRestaurant(this.state.location)
+    .then( () => {
+      let rest = document.querySelector('.content');
+      rest.scrollIntoView(true, {behavior: 'smooth'})
+    });
   }
   render () {
     return (

@@ -10,7 +10,7 @@ function yelpReducer(state = {
       return {...state, loading: true};
 
     case 'FETCH_RESTAURANTS':
-      if (action.payload == "") {
+      if (action.payload.length === 0) {
         return {
           restaurants: [],
           noResults: true,

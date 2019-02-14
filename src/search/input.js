@@ -3,7 +3,8 @@ import React from 'react';
 class SearchInput extends React.Component {
   state = {
     location: '',
-    price: '',
+    // yelp API no longer accepts empty price, needs 1,2,3,4 to cover all prices
+    price: '1,2,3,4',
     hot: '',
     category: 'none'
   }

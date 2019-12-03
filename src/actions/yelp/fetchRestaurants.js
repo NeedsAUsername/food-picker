@@ -13,7 +13,6 @@ export function fetchRestaurants(params) {
     return fetch(url, options)
     .then(response => response.json())
     .then(data => {
-      debugger
       dispatch({
         type: 'FETCH_RESTAURANTS',
         payload: data.businesses

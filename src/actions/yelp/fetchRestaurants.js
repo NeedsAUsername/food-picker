@@ -1,7 +1,6 @@
 // example params: 'location=11354&price=2'
 
 export function fetchRestaurants(params) {
-  debugger
   return (dispatch) => {
     dispatch({type: 'LOADING_RESTAURANTS'})
     const url = `${process.env.REACT_APP_PROXY}/https://api.yelp.com/v3/businesses/search?${params}`;
